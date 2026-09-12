@@ -1,0 +1,101 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import { site } from '../config/site';
+
+const jurisdiction = site.address.city
+  ? `the courts at ${site.address.city}, India`
+  : 'the competent courts in India having jurisdiction over our registered office';
+
+const toc = [
+  { id: 'acceptance', label: 'Acceptance' },
+  { id: 'about-us', label: 'About us' },
+  { id: 'using-this-website', label: 'Using this website' },
+  { id: 'our-products', label: 'Our products' },
+  { id: 'intellectual-property', label: 'Intellectual property' },
+  { id: 'third-party-links', label: 'Third-party links' },
+  { id: 'disclaimer', label: 'Disclaimer' },
+  { id: 'limitation-of-liability', label: 'Limitation of liability' },
+  { id: 'governing-law', label: 'Governing law' },
+  { id: 'changes', label: 'Changes' },
+  { id: 'contact', label: 'Contact' },
+];
+---
+
+<LegalLayout
+  title="Terms of Use"
+  description="The terms that govern your use of the Rachna Softech LLP website."
+  summary="The ground rules for using this website. Each of our products also has its own terms, shown when you sign up."
+  toc={toc}
+>
+  <h2 id="acceptance">1. Acceptance of these terms</h2>
+  <p>
+    By accessing or using this website, you agree to these Terms of Use and to our <a href="/privacy-policy/">Privacy Policy</a>. If you do not
+    agree, please do not use the website.
+  </p>
+
+  <h2 id="about-us">2. About us</h2>
+  <p>
+    This website is owned and operated by {site.legalName}, a limited liability partnership registered in India{site.llpin && ` (LLPIN: ${site.llpin})`}.
+    In these terms, “we”, “us” and “our” refer to {site.legalName}.
+  </p>
+
+  <h2 id="using-this-website">3. Using this website</h2>
+  <p>You may use this website only for lawful purposes. You agree not to:</p>
+  <ul>
+    <li>use the website in any way that breaches applicable laws or regulations;</li>
+    <li>attempt to gain unauthorised access to the website, its servers or any connected systems;</li>
+    <li>introduce viruses, malware or any other harmful code, or interfere with the website’s normal operation;</li>
+    <li>scrape, copy or harvest content or data from the website using automated means without our written permission; or</li>
+    <li>impersonate any person or misrepresent your affiliation with anyone, including when using our contact form.</li>
+  </ul>
+
+  <h2 id="our-products">4. Our products</h2>
+  <p>
+    Our products are offered under product-specific terms, plans or subscription agreements that are presented when you sign up. If those terms
+    conflict with these Terms of Use, the product terms prevail for that product.
+  </p>
+  <p>
+    Information on this website about products, features, pricing and availability is for general information only and may change as our products
+    evolve. Products marked beta, in development or coming soon may change significantly, and may not be released. Any custom or partnership work
+    is governed by a separate written agreement.
+  </p>
+
+  <h2 id="intellectual-property">5. Intellectual property</h2>
+  <p>
+    The content of this website, including text, graphics, logos, illustrations and code, is owned by or licensed to {site.legalName} and is
+    protected by applicable intellectual property laws. Product names and logos are our trademarks. You may view and share links to the website
+    for personal or internal business purposes, but you may not copy, reproduce or reuse its content for commercial purposes without our prior
+    written consent. Photographs are used under their respective licences.
+  </p>
+
+  <h2 id="third-party-links">6. Third-party links</h2>
+  <p>
+    The website may link to third-party websites or services. We do not control them and are not responsible for their content, policies or
+    practices. Accessing them is at your own risk.
+  </p>
+
+  <h2 id="disclaimer">7. Disclaimer</h2>
+  <p>
+    We work to keep the website accurate and available, but it is provided on an “as is” and “as available” basis. To the extent permitted by
+    law, we make no warranties, express or implied, about the completeness, accuracy or availability of the website or its content.
+  </p>
+
+  <h2 id="limitation-of-liability">8. Limitation of liability</h2>
+  <p>
+    To the maximum extent permitted by law, {site.legalName} and its partners shall not be liable for any indirect, incidental, special or
+    consequential loss or damage arising from your use of, or inability to use, this website. Nothing in these terms limits any liability that
+    cannot be limited under applicable law.
+  </p>
+
+  <h2 id="governing-law">9. Governing law and jurisdiction</h2>
+  <p>These terms are governed by the laws of India. Any dispute arising from them is subject to the exclusive jurisdiction of {jurisdiction}.</p>
+
+  <h2 id="changes">10. Changes to these terms</h2>
+  <p>
+    We may update these terms from time to time. The “Last updated” date above shows the latest version. Continuing to use the website after an
+    update means you accept the revised terms.
+  </p>
+
+  <h2 id="contact">11. Contact</h2>
+  <p>Questions about these terms? Email us at <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+</LegalLayout>

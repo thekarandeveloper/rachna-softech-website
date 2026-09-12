@@ -1,0 +1,135 @@
+---
+import * as simpleIcons from 'simple-icons';
+import { Mail, MapPin, Phone } from '@lucide/astro';
+import Logo from './Logo.astro';
+import { site, legalLinks, socialLinks, hasAddress, fullAddress } from '../config/site';
+import { products } from '../data/products';
+
+const year = new Date().getFullYear();
+
+const brandIcons = simpleIcons as unknown as Record<string, { path: string } | undefined>;
+const LINKEDIN_PATH =
+  'M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z';
+const socialPath: Record<string, string | undefined> = {
+  LinkedIn: LINKEDIN_PATH,
+  X: brandIcons.siX?.path,
+  GitHub: brandIcons.siGithub?.path,
+  Instagram: brandIcons.siInstagram?.path,
+};
+
+const columns = [
+  {
+    title: 'Products',
+    links: products.map((p) => ({ label: p.name, href: '/#products' })),
+  },
+  {
+    title: 'Company',
+    links: [
+      { label: 'About us', href: '/#about' },
+      { label: 'Our platform', href: '/#platform' },
+      { label: 'How we build', href: '/#process' },
+      { label: 'Work with us', href: '/#work-with-us' },
+      { label: 'Contact', href: '/#contact' },
+    ],
+  },
+  { title: 'Legal', links: legalLinks },
+];
+---
+
+<footer class="border-t border-slate-200/80 bg-white">
+  <div class="container-x py-14 sm:py-16">
+    <div class="grid gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <Logo />
+        <p class="mt-4 max-w-xs text-sm leading-relaxed text-slate-500">
+          We build simple, useful apps that make everyday life easier, in India and beyond.
+        </p>
+        <ul class="mt-6 space-y-2.5 text-sm">
+          <li>
+            <a href={`mailto:${site.email}`} class="inline-flex items-center gap-2 text-slate-600 transition-colors hover:text-primary">
+              <Mail class="size-4 text-slate-400" />
+              {site.email}
+            </a>
+          </li>
+          {
+            site.phone && (
+              <li>
+                <a href={`tel:${site.phone.replace(/\s/g, '')}`} class="inline-flex items-center gap-2 text-slate-600 transition-colors hover:text-primary">
+                  <Phone class="size-4 text-slate-400" />
+                  {site.phone}
+                </a>
+              </li>
+            )
+          }
+          {
+            hasAddress && (
+              <li class="flex items-start gap-2 text-slate-600">
+                <MapPin class="mt-0.5 size-4 shrink-0 text-slate-400" />
+                <span>{fullAddress}</span>
+              </li>
+            )
+          }
+        </ul>
+        {
+          socialLinks.length > 0 && (
+            <div class="mt-6 flex gap-2">
+              {socialLinks.map((s) => (
+                <a
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${site.name} on ${s.label}`}
+                  class="flex size-9 items-center justify-center rounded-lg border border-slate-200 text-slate-500 transition-colors hover:border-slate-300 hover:text-foreground"
+                >
+                  <svg viewBox="0 0 24 24" class="size-4" fill="currentColor" aria-hidden="true">
+                    <path d={socialPath[s.label]} />
+                  </svg>
+                </a>
+              ))}
+            </div>
+          )
+        }
+      </div>
+
+      <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-8">
+        {
+          columns.map((col) => (
+            <div>
+              <h2 class="text-xs font-semibold tracking-wider text-slate-400 uppercase">{col.title}</h2>
+              <ul class="mt-4 space-y-3">
+                {col.links.map((link) => (
+                  <li>
+                    <a href={link.href} class="text-sm text-slate-600 transition-colors hover:text-foreground">
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="mt-14 flex flex-col gap-5 border-t border-slate-200/80 pt-8 text-xs leading-relaxed text-slate-500 md:flex-row md:items-end md:justify-between">
+      <div class="space-y-1">
+        <p>© {year} {site.legalName}. All rights reserved.</p>
+        <p>
+          {site.legalName} is a limited liability partnership registered in India with limited liability.
+          {site.llpin && <span> LLPIN: {site.llpin}.</span>}
+          {site.gstin && <span> GSTIN: {site.gstin}.</span>}
+        </p>
+        {hasAddress && <p>Registered office: {fullAddress}</p>}
+      </div>
+      <p class="inline-flex shrink-0 items-center gap-2 font-medium text-slate-600">
+        <svg viewBox="0 0 18 12" class="h-3 w-[18px] overflow-hidden rounded-[2px] ring-1 ring-slate-200" aria-hidden="true">
+          <rect width="18" height="4" fill="#FF9933"></rect>
+          <rect y="4" width="18" height="4" fill="#FFFFFF"></rect>
+          <rect y="8" width="18" height="4" fill="#138808"></rect>
+          <circle cx="9" cy="6" r="1.5" fill="none" stroke="#000080" stroke-width="0.6"></circle>
+        </svg>
+        Designed & engineered in India
+      </p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,99 @@
+---
+import { ArrowRight, Menu, X } from '@lucide/astro';
+import Logo from './Logo.astro';
+import { nav } from '../config/site';
+---
+
+<header
+  id="site-header"
+  class="sticky top-0 z-50 w-full border-b border-transparent bg-white/75 backdrop-blur-xl transition-[border-color,box-shadow] duration-300 data-[scrolled]:border-slate-200/80 data-[scrolled]:shadow-[0_8px_24px_-18px_rgba(15,23,42,0.25)]"
+>
+  <div class="container-x flex h-16 items-center justify-between gap-6">
+    <div class="flex items-center gap-8 lg:gap-10">
+      <Logo />
+      <nav aria-label="Primary" class="hidden md:block">
+        <ul class="flex items-center gap-0.5">
+          {
+            nav.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-100/80 hover:text-foreground"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </div>
+
+    <div class="flex items-center gap-1.5">
+      <a href="/#work-with-us" class="btn btn-ghost btn-sm hidden lg:inline-flex">Work with us</a>
+      <a href="/#contact" data-topic="Business enquiry" class="btn btn-primary btn-sm hidden sm:inline-flex">
+        Contact us
+        <ArrowRight class="size-3.5" />
+      </a>
+      <button
+        type="button"
+        id="menu-toggle"
+        class="inline-flex size-10 items-center justify-center rounded-lg text-slate-700 transition-colors hover:bg-slate-100 md:hidden"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Open menu"
+      >
+        <Menu class="menu-icon-open size-5" />
+        <X class="menu-icon-close hidden size-5" />
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden border-t border-slate-200/80 bg-white md:hidden">
+    <nav aria-label="Mobile" class="container-x py-4">
+      <ul class="grid gap-1">
+        {
+          nav.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                data-close-menu
+                class="block rounded-lg px-3 py-2.5 text-[15px] font-medium text-slate-700 hover:bg-slate-50"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <a href="/#contact" data-close-menu data-topic="Business enquiry" class="btn btn-primary btn-md mt-4 w-full">
+        Contact us
+        <ArrowRight class="size-4" />
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('site-header');
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+
+  if (header && toggle && menu) {
+    const onScroll = () => header.toggleAttribute('data-scrolled', window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    const setOpen = (open: boolean) => {
+      menu.classList.toggle('hidden', !open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      toggle.querySelector('.menu-icon-open')?.classList.toggle('hidden', open);
+      toggle.querySelector('.menu-icon-close')?.classList.toggle('hidden', !open);
+    };
+
+    toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+    menu.querySelectorAll('[data-close-menu]').forEach((link) => link.addEventListener('click', () => setOpen(false)));
+    window.addEventListener('keydown', (e) => e.key === 'Escape' && setOpen(false));
+  }
+</script>

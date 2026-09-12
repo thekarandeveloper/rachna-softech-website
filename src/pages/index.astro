@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/home/Hero.astro';
+import Products from '../components/home/Products.astro';
+import Platform from '../components/home/Platform.astro';
+import StackMarquee from '../components/home/StackMarquee.astro';
+import Process from '../components/home/Process.astro';
+import Culture from '../components/home/Culture.astro';
+import WhyUs from '../components/home/WhyUs.astro';
+import Industries from '../components/home/Industries.astro';
+import WorkWithUs from '../components/home/WorkWithUs.astro';
+import About from '../components/home/About.astro';
+import FAQ from '../components/home/FAQ.astro';
+import Contact from '../components/home/Contact.astro';
+import { site } from '../config/site';
+import { faqs } from '../data/faqs';
+import { products } from '../data/products';
+import { faqSchema, productsSchema, webPageSchema } from '../lib/schema';
+
+const siteUrl = Astro.site ?? new URL(Astro.url.origin);
+const jsonLd = [
+  webPageSchema(siteUrl, siteUrl.href, site.title, site.description),
+  productsSchema(siteUrl, products),
+  faqSchema(faqs),
+];
+---
+
+<BaseLayout jsonLd={jsonLd}>
+  <Hero />
+  <Products />
+  <Platform />
+  <StackMarquee />
+  <Process />
+  <Culture />
+  <WhyUs />
+  <Industries />
+  <WorkWithUs />
+  <About />
+  <FAQ />
+  <Contact />
+</BaseLayout>

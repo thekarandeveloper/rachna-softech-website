@@ -1,0 +1,56 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import { site } from '../config/site';
+
+const toc = [
+  { id: 'scope', label: 'Scope' },
+  { id: 'trials', label: 'Free trials' },
+  { id: 'monthly-plans', label: 'Monthly plans' },
+  { id: 'annual-plans', label: 'Annual plans' },
+  { id: 'duplicate-payments', label: 'Duplicate payments' },
+  { id: 'custom-work', label: 'Custom work' },
+  { id: 'how-to-request', label: 'How to request a refund' },
+];
+---
+
+<LegalLayout
+  title="Refund & Cancellation Policy"
+  description="How cancellations and refunds work for Rachna Softech LLP product subscriptions."
+  summary="Cancel any plan whenever you like, and get your money back when it's due. Plan-specific terms always take priority."
+  toc={toc}
+>
+  <h2 id="scope">1. Scope</h2>
+  <p>
+    This policy applies to payments made to {site.legalName} for subscriptions to our apps. Where a product’s plan or a signed agreement sets out
+    different terms, those terms apply. If you subscribed through Google Play or the Apple App Store, cancellations and refunds are handled by that
+    store under its own policies.
+  </p>
+
+  <h2 id="trials">2. Free trials</h2>
+  <p>Free trials are free of charge. You are not billed unless you choose a paid plan.</p>
+
+  <h2 id="monthly-plans">3. Monthly plans</h2>
+  <p>
+    You can cancel a monthly plan at any time from your account or by writing to us. Your plan stays active until the end of the current billing
+    month and is not renewed after that. Partially used months are not refunded, except where required by law.
+  </p>
+
+  <h2 id="annual-plans">4. Annual plans</h2>
+  <p>
+    If you cancel within 7 days of your first annual payment, we refund it in full. After that, the plan stays active until the end of the paid
+    term and the remaining period is not refunded, except where required by law.
+  </p>
+
+  <h2 id="duplicate-payments">5. Duplicate or incorrect payments</h2>
+  <p>If you are charged twice or charged an incorrect amount, we refund the excess in full after verifying the transaction.</p>
+
+  <h2 id="custom-work">6. Custom and partnership work</h2>
+  <p>Custom solutions and partnership work are billed under a separate written agreement, which sets out its own cancellation and refund terms.</p>
+
+  <h2 id="how-to-request">7. How to request a refund</h2>
+  <p>
+    Email <a href={`mailto:${site.email}`}>{site.email}</a> with your invoice number, the payment reference and the reason for your request. We
+    acknowledge requests within 2 business days. Approved refunds are processed within 7 business days to the original payment method; the time
+    taken for the amount to reach your account depends on your bank or payment provider.
+  </p>
+</LegalLayout>

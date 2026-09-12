@@ -1,0 +1,71 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import { site } from '../config/site';
+
+const toc = [
+  { id: 'what-are-cookies', label: 'What are cookies' },
+  { id: 'how-we-use-cookies', label: 'How we use cookies' },
+  { id: 'managing-cookies', label: 'Managing cookies' },
+  { id: 'changes', label: 'Changes and contact' },
+];
+---
+
+<LegalLayout
+  title="Cookie Policy"
+  description="Rachna Softech LLP does not use advertising or tracking cookies. Learn what storage, if any, this website uses."
+  summary="Short version: we don't use advertising, analytics or cross-site tracking cookies on this website."
+  toc={toc}
+>
+  <h2 id="what-are-cookies">1. What are cookies?</h2>
+  <p>
+    Cookies are small text files that a website stores on your device. They are commonly used to keep websites secure, remember preferences and,
+    on some websites, to track visitors for analytics or advertising.
+  </p>
+
+  <h2 id="how-we-use-cookies">2. How we use cookies</h2>
+  <p>
+    This website does not set any cookies of its own for analytics, advertising or tracking. When you sign in to one of our products, it uses
+    strictly necessary cookies to keep you signed in and to protect your session. If our hosting or security provider sets a strictly necessary
+    cookie, for example to protect against abuse and automated attacks, it is used only for that purpose.
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Category</th>
+        <th scope="col">Used on this website</th>
+        <th scope="col">Purpose</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Strictly necessary</strong></td>
+        <td>Yes, in our products when you sign in, and for security if required by our hosting provider</td>
+        <td>Keeping you signed in, session security and abuse prevention</td>
+      </tr>
+      <tr>
+        <td><strong>Analytics</strong></td>
+        <td>No</td>
+        <td>–</td>
+      </tr>
+      <tr>
+        <td><strong>Advertising and tracking</strong></td>
+        <td>No</td>
+        <td>–</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>If we introduce analytics or other non-essential cookies in future, we will update this policy and ask for your consent where required by law.</p>
+
+  <h2 id="managing-cookies">3. Managing cookies</h2>
+  <p>
+    You can view, block or delete cookies at any time through your browser settings. Blocking strictly necessary cookies may affect how parts of
+    the website work.
+  </p>
+
+  <h2 id="changes">4. Changes and contact</h2>
+  <p>
+    We may update this policy from time to time; the “Last updated” date above shows the latest version. For questions, email{' '}
+    <a href={`mailto:${site.grievanceOfficer.email}`}>{site.grievanceOfficer.email}</a>. For how we handle personal data more broadly, see our{' '}
+    <a href="/privacy-policy/">Privacy Policy</a>.
+  </p>
+</LegalLayout>

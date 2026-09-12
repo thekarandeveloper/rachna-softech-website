@@ -1,0 +1,163 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import { site, hasAddress, fullAddress } from '../config/site';
+
+const officer = site.grievanceOfficer;
+
+const toc = [
+  { id: 'who-we-are', label: 'Who we are' },
+  { id: 'information-we-collect', label: 'Information we collect' },
+  { id: 'how-we-use-it', label: 'How we use it' },
+  { id: 'product-data', label: 'Data in our products' },
+  { id: 'sharing', label: 'Sharing and disclosure' },
+  { id: 'retention', label: 'Data retention' },
+  { id: 'security', label: 'Security' },
+  { id: 'your-rights', label: 'Your rights' },
+  { id: 'cookies', label: 'Cookies' },
+  { id: 'children', label: 'Children' },
+  { id: 'grievance-officer', label: 'Grievance Officer' },
+  { id: 'changes', label: 'Changes' },
+];
+---
+
+<LegalLayout
+  title="Privacy Policy"
+  description="How Rachna Softech LLP collects, uses and protects personal data across its website and products, in line with India's Digital Personal Data Protection Act, 2023."
+  summary="We collect only what we need to run our website and products, the data you put into our products stays yours, and we never sell personal data."
+  toc={toc}
+>
+  <p>
+    This Privacy Policy explains how {site.legalName} (“<strong>Rachna Softech</strong>”, “<strong>we</strong>”, “<strong>us</strong>”) collects,
+    uses, shares and protects personal data when you visit this website, contact us or use our products. It is published in accordance with the
+    Digital Personal Data Protection Act, 2023 (“<strong>DPDP Act</strong>”), the Information Technology Act, 2000 and the rules made under them.
+  </p>
+
+  <h2 id="who-we-are">1. Who we are</h2>
+  <p>
+    {site.legalName} is a limited liability partnership registered in India{site.llpin && ` (LLPIN: ${site.llpin})`}{
+      hasAddress && `, with its registered office at ${fullAddress}`
+    }. We build and operate apps and software products. For personal data collected through this website and our apps, we are the Data Fiduciary
+    under the DPDP Act.
+  </p>
+
+  <h2 id="information-we-collect">2. Information we collect</h2>
+  <h3>Information you give us</h3>
+  <ul>
+    <li>
+      <strong>Contact and enquiry details:</strong> your name, email address, phone number, company name and anything you choose to include in a
+      message, for example through our contact form or by email.
+    </li>
+    <li>
+      <strong>Account details:</strong> if you sign up for one of our apps, your name, email address or phone number, and your account settings.
+    </li>
+    <li>
+      <strong>Billing details:</strong> for paid plans, your billing details and payment records. Payments are handled by our payment partners or
+      by the app store you buy through; we do not store full card details.
+    </li>
+  </ul>
+  <h3>Information collected automatically</h3>
+  <ul>
+    <li>
+      <strong>Technical data:</strong> when you visit this website or use our products, we and our hosting providers may log your IP address,
+      browser type, device information, pages visited and the date and time of your visit. We use this for security, troubleshooting and to keep
+      our services reliable.
+    </li>
+  </ul>
+
+  <h2 id="how-we-use-it">3. How we use your information</h2>
+  <p>We process personal data only for clear and lawful purposes, based on your consent or on legitimate uses permitted under the DPDP Act:</p>
+  <ul>
+    <li>to respond to your enquiries, business requests and partnership proposals;</li>
+    <li>to create and manage your product accounts, and to provide, secure and support our products;</li>
+    <li>to process payments and send invoices, service updates and important notices;</li>
+    <li>to improve our products using aggregated or de-identified usage information;</li>
+    <li>to prevent fraud, abuse and security incidents; and</li>
+    <li>to comply with applicable laws, including tax and accounting obligations.</li>
+  </ul>
+  <p>
+    We send marketing emails only if you have agreed to receive them, and you can opt out at any time. <strong>We do not sell or rent your personal data.</strong>
+  </p>
+
+  <h2 id="product-data">4. Data you store in our apps</h2>
+  <p>
+    The content you add to our apps, such as tasks, notes, expenses or health entries, belongs to you. We process it only to provide, sync, secure
+    and support the app for you, and we never sell it or use it for advertising. Health and financial information you choose to record is treated
+    as sensitive: it is used only for the features you ask for. If you add information about other people, for example in a shared family list,
+    please make sure they are comfortable with it.
+  </p>
+
+  <h2 id="sharing">5. Sharing and disclosure</h2>
+  <p>We share personal data only when necessary, and only with:</p>
+  <ul>
+    <li>
+      <strong>Service providers</strong> who help us operate, such as cloud hosting, email delivery and payment processing, who are bound by
+      confidentiality and data protection obligations;
+    </li>
+    <li><strong>Professional advisers</strong> such as auditors and legal counsel, where required; and</li>
+    <li><strong>Government or law enforcement authorities</strong>, when we are required to do so by law.</li>
+  </ul>
+  <p>
+    Some service providers may process data outside India. Where they do, we take reasonable steps to keep your data protected and comply with
+    any restrictions on cross-border transfers notified by the Government of India.
+  </p>
+
+  <h2 id="retention">6. Data retention</h2>
+  <p>
+    We keep personal data only for as long as it is needed for the purpose it was collected for. Account data is kept while your account is active
+    and deleted after it is closed, except where we must keep records under applicable tax, accounting and LLP laws. Enquiries and messages
+    are deleted once they are no longer needed.
+  </p>
+
+  <h2 id="security">7. How we protect your data</h2>
+  <p>
+    We use reasonable security safeguards, including encryption in transit and at rest, least-privilege access controls, regular backups and
+    reputable infrastructure providers. No method of transmission or storage is completely secure, but we work hard to protect your data. If a
+    personal data breach occurs, we will notify affected individuals and the Data Protection Board of India as required by law.
+  </p>
+
+  <h2 id="your-rights">8. Your rights</h2>
+  <p>Under the DPDP Act, you have the right to:</p>
+  <ul>
+    <li><strong>Access</strong> a summary of the personal data we hold about you and how it is processed;</li>
+    <li><strong>Correct, complete, update or erase</strong> your personal data;</li>
+    <li><strong>Withdraw your consent</strong> at any time, as easily as you gave it (this does not affect processing already carried out);</li>
+    <li><strong>Grievance redressal</strong> for any concern about how we handle your data; and</li>
+    <li><strong>Nominate</strong> another person to exercise these rights on your behalf in the event of death or incapacity.</li>
+  </ul>
+  <p>
+    To exercise any of these rights, email <a href={`mailto:${officer.email}`}>{officer.email}</a>. We may need to verify your identity before
+    acting on your request.
+  </p>
+
+  <h2 id="cookies">9. Cookies</h2>
+  <p>
+    We do not use advertising or cross-site tracking cookies. Our products use strictly necessary cookies to keep you signed in. See our{' '}
+    <a href="/cookie-policy/">Cookie Policy</a> for details.
+  </p>
+
+  <h2 id="children">10. Children</h2>
+  <p>
+    Our apps are intended for people aged 18 and over. Under the DPDP Act, we need verifiable consent from a parent or lawful guardian before
+    processing a child’s personal data. If you believe a child has shared personal data with us without that consent, please contact us and we
+    will delete it.
+  </p>
+
+  <h2 id="grievance-officer">11. Grievance Officer</h2>
+  <p>For any question, concern or complaint about this policy or how we handle your personal data, please contact our Grievance Officer:</p>
+  <address class="my-6 rounded-xl border border-slate-200 bg-background p-5 text-sm leading-6 not-italic">
+    <strong class="block text-base">{officer.name}</strong>
+    <span class="block">{officer.designation}, {site.legalName}</span>
+    <span class="block">Email: <a href={`mailto:${officer.email}`}>{officer.email}</a></span>
+    {hasAddress && <span class="block">Address: {fullAddress}</span>}
+  </address>
+  <p>
+    We will acknowledge your grievance promptly and respond within the period prescribed under applicable law. If you are not satisfied with our
+    response, you may approach the Data Protection Board of India.
+  </p>
+
+  <h2 id="changes">12. Changes to this policy</h2>
+  <p>
+    We may update this policy from time to time. The “Last updated” date above shows when it was last revised. If we make significant changes,
+    we will take reasonable steps to let you know.
+  </p>
+</LegalLayout>

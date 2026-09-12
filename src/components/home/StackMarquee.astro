@@ -1,0 +1,81 @@
+---
+import {
+  siAnthropic,
+  siCloudflare,
+  siDocker,
+  siFastapi,
+  siFigma,
+  siFlutter,
+  siGooglecloud,
+  siGooglegemini,
+  siKubernetes,
+  siMongodb,
+  siNestjs,
+  siNextdotjs,
+  siNodedotjs,
+  siPostgresql,
+  siPython,
+  siRazorpay,
+  siReact,
+  siRedis,
+  siStripe,
+  siSupabase,
+  siTailwindcss,
+  siTypescript,
+  siVercel,
+  siAstro,
+} from 'simple-icons';
+
+const stack = [
+  siReact,
+  siNextdotjs,
+  siTypescript,
+  siNodedotjs,
+  siPython,
+  siFastapi,
+  siNestjs,
+  siPostgresql,
+  siMongodb,
+  siRedis,
+  siSupabase,
+  siDocker,
+  siKubernetes,
+  siGooglecloud,
+  siCloudflare,
+  siVercel,
+  siFlutter,
+  siTailwindcss,
+  siAstro,
+  siStripe,
+  siRazorpay,
+  siGooglegemini,
+  siAnthropic,
+  siFigma,
+];
+---
+
+<section aria-labelledby="stack-title" class="border-b border-slate-200/80 bg-background py-12">
+  <div class="container-x">
+    <p id="stack-title" class="text-center text-xs font-semibold tracking-[0.14em] text-slate-400 uppercase">
+      Our products are built on a modern, battle-tested stack
+    </p>
+  </div>
+  <div class="mask-fade-x mt-8 overflow-hidden">
+    <div class="animate-marquee flex w-max hover:[animation-play-state:paused]">
+      {
+        [0, 1].map((copy) => (
+          <ul class="flex items-center gap-12 pr-12" aria-hidden={copy === 1 ? 'true' : undefined}>
+            {stack.map((icon) => (
+              <li class="flex items-center gap-2.5 text-slate-400 transition-colors duration-300 hover:text-(--brand)" style={`--brand:#${icon.hex === '000000' || icon.hex === '191919' ? '0F172A' : icon.hex}`}>
+                <svg viewBox="0 0 24 24" class="size-5" fill="currentColor" aria-hidden="true">
+                  <path d={icon.path} />
+                </svg>
+                <span class="text-sm font-semibold tracking-tight whitespace-nowrap text-slate-500">{icon.title}</span>
+              </li>
+            ))}
+          </ul>
+        ))
+      }
+    </div>
+  </div>
+</section>

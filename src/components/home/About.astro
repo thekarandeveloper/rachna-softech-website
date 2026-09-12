@@ -1,0 +1,155 @@
+---
+import { Picture } from 'astro:assets';
+import { Eye, Target } from '@lucide/astro';
+import SectionHeading from '../SectionHeading.astro';
+import { site, hasAddress, fullAddress } from '../../config/site';
+import teamJaipur from '../../assets/images/team-jaipur.jpg';
+import teamCollab from '../../assets/images/team-collab.jpg';
+import officeBright from '../../assets/images/office-bright.jpg';
+
+const initials = (name: string) => {
+  const parts = name.trim().split(/\s+/);
+  return (parts[0][0] + (parts.length > 1 ? parts[parts.length - 1][0] : '')).toUpperCase();
+};
+
+const facts = [
+  { label: 'Legal name', value: site.legalName },
+  { label: 'Entity type', value: `${site.entityType} (India)` },
+  { label: 'Designated partners', value: site.partners.map((p) => p.name).join(', ') },
+  { label: 'LLPIN', value: site.llpin },
+  { label: 'GSTIN', value: site.gstin },
+  { label: 'Registered office', value: hasAddress ? fullAddress : '' },
+  { label: 'Email', value: site.email, href: `mailto:${site.email}` },
+].filter((f) => f.value);
+---
+
+<section id="about" class="border-b border-slate-200/80 bg-white py-24 sm:py-28">
+  <div class="container-x">
+    <div class="grid items-center gap-16 lg:grid-cols-2">
+      <div>
+        <SectionHeading
+          align="left"
+          eyebrow="About us"
+          title='Rachna means <span class="text-primary">creation</span>. It is what we do every day.'
+        />
+        <div class="mt-6 space-y-4 text-base leading-relaxed text-slate-600" data-reveal>
+          <p>
+            <strong class="font-semibold text-foreground">Rachna (रचना)</strong> is the Hindi word for creation. {site.legalName} is an Indian
+            software company that creates its own apps and software products: simple, beautifully designed tools that make everyday life easier.
+          </p>
+          <p>
+            Instead of one app that tries to do everything, we build focused apps that each do one thing really well. They share one account and
+            one secure platform, so they work even better together.
+          </p>
+        </div>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2" data-reveal>
+          <div class="rounded-xl border border-slate-200 bg-background p-5">
+            <p class="flex items-center gap-2 text-sm font-semibold text-foreground">
+              <Target class="size-4 text-primary" /> Our mission
+            </p>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">Make everyday life simpler with software that is useful, private and affordable.</p>
+          </div>
+          <div class="rounded-xl border border-slate-200 bg-background p-5">
+            <p class="flex items-center gap-2 text-sm font-semibold text-foreground">
+              <Eye class="size-4 text-primary" /> Our vision
+            </p>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">A family of apps trusted by people across India and around the world.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative grid grid-cols-2 gap-3 sm:gap-4" data-reveal>
+        <div class="col-span-2 overflow-hidden rounded-2xl border border-slate-200">
+          <Picture
+            src={teamJaipur}
+            formats={['avif', 'webp']}
+            widths={[560, 840, 1120]}
+            sizes="(min-width: 1024px) 560px, 100vw"
+            alt="A team of young professionals reviewing work together on a laptop"
+            class="aspect-[16/9] h-auto w-full object-cover"
+            pictureAttributes={{ class: 'block' }}
+          />
+        </div>
+        <div class="overflow-hidden rounded-2xl border border-slate-200">
+          <Picture
+            src={teamCollab}
+            formats={['avif', 'webp']}
+            widths={[320, 560]}
+            sizes="(min-width: 1024px) 280px, 50vw"
+            alt="Developers working together on laptops around a shared table"
+            class="aspect-[4/3] h-auto w-full object-cover"
+            pictureAttributes={{ class: 'block' }}
+          />
+        </div>
+        <div class="overflow-hidden rounded-2xl border border-slate-200">
+          <Picture
+            src={officeBright}
+            formats={['avif', 'webp']}
+            widths={[320, 560]}
+            sizes="(min-width: 1024px) 280px, 50vw"
+            alt="A bright, modern open-plan office with people working at desks"
+            class="aspect-[4/3] h-auto w-full object-cover"
+            pictureAttributes={{ class: 'block' }}
+          />
+        </div>
+        <div class="absolute -bottom-4 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold whitespace-nowrap text-slate-700 shadow-lg shadow-slate-900/10">
+          <svg viewBox="0 0 18 12" class="h-3 w-[18px] overflow-hidden rounded-[2px] ring-1 ring-slate-200" aria-hidden="true">
+            <rect width="18" height="4" fill="#FF9933"></rect>
+            <rect y="4" width="18" height="4" fill="#FFFFFF"></rect>
+            <rect y="8" width="18" height="4" fill="#138808"></rect>
+            <circle cx="9" cy="6" r="1.5" fill="none" stroke="#000080" stroke-width="0.6"></circle>
+          </svg>
+          Made in India, for the world
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-24 grid gap-6 lg:grid-cols-3">
+      <div class="lg:col-span-2" data-reveal>
+        <h3 class="text-xs font-semibold tracking-[0.14em] text-slate-400 uppercase">Leadership</h3>
+        <div class="mt-5 grid gap-4 sm:grid-cols-2">
+          {
+            site.partners.map((partner) => (
+              <div class="card flex items-center gap-4 p-5">
+                <span class="flex size-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 text-lg font-semibold tracking-wide text-white ring-4 ring-blue-50">
+                  {initials(partner.name)}
+                </span>
+                <div class="min-w-0">
+                  <p class="font-semibold text-foreground">{partner.name}</p>
+                  <p class="mt-0.5 text-sm text-slate-500">{partner.role}</p>
+                  {partner.linkedin && (
+                    <a href={partner.linkedin} target="_blank" rel="noopener noreferrer" class="mt-1 inline-block text-xs font-medium text-primary hover:underline">
+                      LinkedIn profile
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <div data-reveal>
+        <h3 class="text-xs font-semibold tracking-[0.14em] text-slate-400 uppercase">Company information</h3>
+        <dl class="card mt-5 divide-y divide-slate-100 px-5 text-sm">
+          {
+            facts.map((f) => (
+              <div class="flex flex-col gap-0.5 py-3">
+                <dt class="text-xs text-slate-500">{f.label}</dt>
+                <dd class="font-medium text-foreground">
+                  {f.href ? (
+                    <a href={f.href} class="hover:text-primary">
+                      {f.value}
+                    </a>
+                  ) : (
+                    f.value
+                  )}
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,89 @@
+---
+import { site, socialLinks } from '../config/site';
+import { baseSchemas } from '../lib/schema';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  imageAlt?: string;
+  type?: 'website' | 'article';
+  noindex?: boolean;
+  jsonLd?: Record<string, unknown>[];
+}
+
+const {
+  title,
+  description = site.description,
+  image = '/og-image.png',
+  imageAlt = `${site.legalName}: ${site.tagline}`,
+  type = 'website',
+  noindex = false,
+  jsonLd = [],
+} = Astro.props;
+
+const siteUrl = Astro.site ?? new URL(Astro.url.origin);
+const canonical = new URL(Astro.url.pathname, siteUrl).href;
+const imageUrl = new URL(image, siteUrl).href;
+const fullTitle = title ? `${title} | ${site.legalName}` : site.title;
+const robots = noindex
+  ? 'noindex, nofollow'
+  : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+
+const xProfile = socialLinks.find((s) => s.label === 'X');
+const xHandle = xProfile ? '@' + xProfile.href.replace(/\/$/, '').split('/').pop() : undefined;
+
+const graph = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@graph': [...baseSchemas(siteUrl), ...jsonLd],
+}).replace(/</g, '\\u003c');
+---
+
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<meta name="robots" content={robots} />
+<meta name="googlebot" content={robots} />
+<meta name="author" content={site.legalName} />
+<meta name="publisher" content={site.legalName} />
+<meta name="keywords" content={site.keywords.join(', ')} />
+<meta name="application-name" content={site.name} />
+<meta name="apple-mobile-web-app-title" content={site.name} />
+<meta name="theme-color" content={site.themeColor} />
+<meta name="color-scheme" content="light" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+<link rel="alternate" hreflang="en-IN" href={canonical} />
+<link rel="alternate" hreflang="x-default" href={canonical} />
+
+<!-- Open Graph -->
+<meta property="og:type" content={type} />
+<meta property="og:site_name" content={site.legalName} />
+<meta property="og:locale" content={site.locale} />
+<meta property="og:url" content={canonical} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:image:secure_url" content={imageUrl} />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={imageAlt} />
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+<meta name="twitter:image:alt" content={imageAlt} />
+{xHandle && <meta name="twitter:site" content={xHandle} />}
+
+<!-- Icons & app -->
+<link rel="icon" href="/favicon.ico" sizes="48x48" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap-index.xml" />
+
+<!-- Structured data -->
+<script type="application/ld+json" is:inline set:html={graph} />
