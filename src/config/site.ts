@@ -40,6 +40,9 @@ export interface SiteConfig {
   partners: Partner[];
   grievanceOfficer: { name: string; designation: string; email: string };
   socials: { linkedin: string; x: string; github: string; instagram: string };
+  /** Google Search Console HTML-tag verification token (optional). */
+  googleSiteVerification: string;
+
   /** Optional form backend URL (e.g. Formspree, Web3Forms). When empty, the contact form opens the visitor's email app. */
   contactFormEndpoint: string;
   legalLastUpdated: string;
@@ -98,6 +101,8 @@ export const site: SiteConfig = {
     github: '',
     instagram: '',
   },
+
+  googleSiteVerification: '',
 
   contactFormEndpoint: '',
 

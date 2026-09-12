@@ -64,6 +64,7 @@ Hashed build assets (`/_astro/*`) are cached for a year; icons and the social im
 - JSON-LD structured data: Organization, WebSite, WebPage, product ItemList, FAQPage and BreadcrumbList
 - `sitemap-index.xml` (via `@astrojs/sitemap`) and a `robots.txt` that points to it
 - Web app manifest, SVG/ICO favicons, Apple touch icon and maskable icon
+- Optional Google Search Console verification: paste the HTML-tag token into `googleSiteVerification` in `src/config/site.ts`
 
 ## Deploy on Vercel
 

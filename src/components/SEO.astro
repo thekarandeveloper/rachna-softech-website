@@ -42,6 +42,7 @@ const graph = JSON.stringify({
 <title>{fullTitle}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonical} />
+{site.googleSiteVerification && <meta name="google-site-verification" content={site.googleSiteVerification} />}
 <meta name="robots" content={robots} />
 <meta name="googlebot" content={robots} />
 <meta name="author" content={site.legalName} />
