@@ -14,7 +14,7 @@ npm run preview   # serve the production build locally
 npm run check     # type-check .astro and .ts files
 ```
 
-Requires Node.js 22.12 or newer.
+Builds use Node.js 24 (LTS), pinned in `package.json` and `.nvmrc` so Vercel never switches major versions on its own. Any Node.js 22.12+ works for local development.
 
 ## Where to edit things
 
