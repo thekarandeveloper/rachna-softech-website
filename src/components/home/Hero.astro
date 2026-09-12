@@ -56,23 +56,24 @@ const vitals = [
 ];
 ---
 
-<section class="relative overflow-hidden border-b border-slate-200/80 bg-white">
+<section class="relative overflow-hidden border-b border-zinc-200/80 bg-white">
   <div aria-hidden="true" class="pointer-events-none absolute inset-0">
-    <div class="dot-grid absolute inset-0 [mask-image:radial-gradient(ellipse_70%_55%_at_50%_0%,#000_35%,transparent_100%)]"></div>
-    <div class="absolute -top-48 left-1/2 h-[560px] w-[980px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(59,130,246,0.16),transparent)]"></div>
+    <div class="absolute -top-56 left-1/2 h-[620px] w-[1100px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(167,139,250,0.24),transparent)]"></div>
+    <div class="absolute top-[40%] -left-40 h-[440px] w-[440px] rounded-full bg-[radial-gradient(closest-side,rgba(196,181,253,0.2),transparent)]"></div>
+    <div class="absolute top-[30%] -right-40 h-[440px] w-[440px] rounded-full bg-[radial-gradient(closest-side,rgba(232,121,249,0.12),transparent)]"></div>
   </div>
 
   <div class="container-x relative pt-14 pb-20 sm:pt-24 sm:pb-24">
     <div class="mx-auto flex max-w-5xl flex-col items-center text-center">
       <a
         href="#products"
-        class="group animate-fade-up inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 py-1 pr-3 pl-1 text-xs font-medium text-slate-600 shadow-[0_1px_2px_rgba(15,23,42,0.04)] backdrop-blur transition-colors hover:border-blue-200 hover:text-foreground"
+        class="group animate-fade-up inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white/80 py-1 pr-3 pl-1 text-xs font-medium text-zinc-600 shadow-[0_1px_2px_rgba(24,24,27,0.04)] backdrop-blur transition-colors hover:border-violet-200 hover:text-foreground"
       >
         <span class="inline-flex items-center gap-1 rounded-full bg-primary px-2 py-0.5 text-[11px] font-semibold text-white">
           <Sparkles class="size-3" /> New
         </span>
         {heroAnnouncement()}
-        <ArrowRight class="size-3.5 text-slate-400 transition-transform group-hover:translate-x-0.5" />
+        <ArrowRight class="size-3.5 text-zinc-400 transition-transform group-hover:translate-x-0.5" />
       </a>
 
       <h1
@@ -80,20 +81,20 @@ const vitals = [
         style="animation-delay: 80ms; letter-spacing: -0.035em"
       >
         We build tools that{' '}<br class="hidden sm:block" />
-        <span class="relative inline-block text-primary">
+        <span class="relative text-primary sm:inline-block">
           make life simpler.
           <svg
             aria-hidden="true"
             viewBox="0 0 300 12"
             preserveAspectRatio="none"
-            class="absolute -bottom-1.5 left-0 h-2.5 w-full text-blue-300 sm:-bottom-2 sm:h-3"
+            class="absolute -bottom-2 left-0 hidden h-3 w-full text-violet-300 sm:block"
           >
             <path d="M2 9.5C60 3 150 2.5 298 8" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"></path>
           </svg>
         </span>
       </h1>
 
-      <p class="animate-fade-up mt-7 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg" style="animation-delay: 160ms">
+      <p class="animate-fade-up mt-7 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg" style="animation-delay: 160ms">
         Rachna Softech is an Indian software company building a growing family of simple, useful apps for everyday life, from to-do
         lists and personal finance to health and habits.
       </p>
@@ -106,7 +107,7 @@ const vitals = [
         <a href="#contact" data-topic="Business enquiry" class="btn btn-outline btn-lg w-full sm:w-auto">Work with us</a>
       </div>
 
-      <ul class="animate-fade-up mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5 text-[13px] text-slate-500" style="animation-delay: 300ms">
+      <ul class="animate-fade-up mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5 text-[13px] text-zinc-500" style="animation-delay: 300ms">
         {
           trust.map(({ icon: Icon, label }) => (
             <li class="inline-flex items-center gap-1.5">
@@ -122,7 +123,7 @@ const vitals = [
     <div class="animate-fade-up relative mx-auto mt-16 max-w-5xl sm:mt-20" style="animation-delay: 380ms">
       <div
         aria-hidden="true"
-        class="absolute inset-x-0 top-10 bottom-10 -z-10 mx-auto max-w-3xl rounded-full bg-[radial-gradient(closest-side,rgba(37,99,235,0.18),transparent)] blur-2xl"
+        class="absolute inset-x-0 top-10 bottom-10 -z-10 mx-auto max-w-3xl rounded-full bg-[radial-gradient(closest-side,rgba(124,58,237,0.18),transparent)] blur-2xl"
       >
       </div>
 
@@ -137,7 +138,7 @@ const vitals = [
             <div class="flex flex-1 flex-col px-4 pt-3 pb-4">
               <div class="flex items-center justify-between">
                 <div>
-                  <p class="text-[10px] font-medium text-slate-500">September</p>
+                  <p class="text-[10px] font-medium text-zinc-500">September</p>
                   <p class="text-base font-bold tracking-tight text-foreground">Spending</p>
                 </div>
                 <span class="flex size-7 items-center justify-center rounded-full bg-emerald-600 text-white"><Wallet class="size-3.5" /></span>
@@ -153,26 +154,26 @@ const vitals = [
                   spending.map((s) => (
                     <li>
                       <div class="flex items-center justify-between text-[10px]">
-                        <span class="font-medium text-slate-600">{s.label}</span>
-                        <span class="font-semibold text-slate-800">{s.amount}</span>
+                        <span class="font-medium text-zinc-600">{s.label}</span>
+                        <span class="font-semibold text-zinc-800">{s.amount}</span>
                       </div>
-                      <div class="mt-1 h-1 rounded-full bg-slate-100">
+                      <div class="mt-1 h-1 rounded-full bg-zinc-100">
                         <div class:list={['h-full rounded-full', s.bar, s.width]} />
                       </div>
                     </li>
                   ))
                 }
               </ul>
-              <p class="mt-4 text-[9px] font-semibold tracking-wider text-slate-400 uppercase">Recent</p>
+              <p class="mt-4 text-[9px] font-semibold tracking-wider text-zinc-400 uppercase">Recent</p>
               <ul class="mt-2 space-y-2">
                 {
                   transactions.map((t) => (
-                    <li class="flex items-center justify-between rounded-lg border border-slate-200 bg-white px-2.5 py-1.5">
+                    <li class="flex items-center justify-between rounded-lg border border-zinc-200 bg-white px-2.5 py-1.5">
                       <div>
-                        <p class="text-[10px] font-semibold text-slate-800">{t.name}</p>
-                        <p class="text-[9px] text-slate-400">{t.meta}</p>
+                        <p class="text-[10px] font-semibold text-zinc-800">{t.name}</p>
+                        <p class="text-[9px] text-zinc-400">{t.meta}</p>
                       </div>
-                      <span class:list={['text-[10px] font-semibold', t.positive ? 'text-emerald-600' : 'text-slate-700']}>{t.amount}</span>
+                      <span class:list={['text-[10px] font-semibold', t.positive ? 'text-emerald-600' : 'text-zinc-700']}>{t.amount}</span>
                     </li>
                   ))
                 }
@@ -187,12 +188,12 @@ const vitals = [
             <div class="flex flex-1 flex-col px-4 pt-3 pb-4">
               <div class="flex items-center justify-between">
                 <div>
-                  <p class="text-[10px] font-medium text-slate-500">Today</p>
+                  <p class="text-[10px] font-medium text-zinc-500">Today</p>
                   <p class="text-base font-bold tracking-tight text-foreground">Your health</p>
                 </div>
                 <span class="flex size-7 items-center justify-center rounded-full bg-rose-600 text-white"><HeartPulse class="size-3.5" /></span>
               </div>
-              <div class="mt-3 flex flex-col items-center rounded-2xl border border-slate-200 bg-white py-4">
+              <div class="mt-3 flex flex-col items-center rounded-2xl border border-zinc-200 bg-white py-4">
                 <div class="relative size-28">
                   <svg viewBox="0 0 120 120" class="size-full -rotate-90">
                     <circle cx="60" cy="60" r="50" fill="none" stroke-width="11" class="stroke-rose-100"></circle>
@@ -201,7 +202,7 @@ const vitals = [
                   </svg>
                   <div class="absolute inset-0 flex flex-col items-center justify-center">
                     <p class="text-lg leading-none font-bold text-foreground">8,432</p>
-                    <p class="mt-1 text-[9px] text-slate-500">of 10,000 steps</p>
+                    <p class="mt-1 text-[9px] text-zinc-500">of 10,000 steps</p>
                   </div>
                 </div>
               </div>
@@ -216,11 +217,11 @@ const vitals = [
                   ))
                 }
               </div>
-              <div class="mt-3 flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-2.5 py-2">
+              <div class="mt-3 flex items-center gap-2 rounded-xl border border-zinc-200 bg-white px-2.5 py-2">
                 <span class="flex size-7 items-center justify-center rounded-lg bg-rose-50 text-rose-600"><Bell class="size-3.5" /></span>
                 <div>
-                  <p class="text-[10px] font-semibold text-slate-800">Vitamin D</p>
-                  <p class="text-[9px] text-slate-400">9:00 PM · after dinner</p>
+                  <p class="text-[10px] font-semibold text-zinc-800">Vitamin D</p>
+                  <p class="text-[9px] text-zinc-400">9:00 PM · after dinner</p>
                 </div>
               </div>
             </div>
@@ -231,48 +232,48 @@ const vitals = [
         <div aria-hidden="true" class="relative z-20 w-[290px] max-w-full select-none">
           <PhoneFrame>
             <div class="flex flex-1 flex-col px-4 pt-3 pb-3">
-              <p class="text-[11px] font-medium text-slate-500">Good morning, Aarav</p>
+              <p class="text-[11px] font-medium text-zinc-500">Good morning, Aarav</p>
               <div class="mt-0.5 flex items-end justify-between">
                 <p class="text-2xl font-bold tracking-tight text-foreground">Today</p>
-                <span class="pb-1 text-[11px] font-medium text-slate-400">Fri, 13 Sep</span>
+                <span class="pb-1 text-[11px] font-medium text-zinc-400">Fri, 13 Sep</span>
               </div>
-              <div class="mt-3 rounded-2xl bg-primary p-3.5 text-white shadow-lg shadow-blue-600/25">
-                <div class="flex items-center justify-between text-[11px] font-medium text-blue-100">
+              <div class="mt-3 rounded-2xl bg-primary p-3.5 text-white shadow-lg shadow-violet-600/25">
+                <div class="flex items-center justify-between text-[11px] font-medium text-violet-100">
                   <span>Daily progress</span>
                   <span>2 of 4 done</span>
                 </div>
                 <div class="mt-2 h-1.5 rounded-full bg-white/25"><div class="h-full w-1/2 rounded-full bg-white"></div></div>
-                <p class="mt-2 text-[11px] text-blue-50">You're on a 5-day streak. Keep going!</p>
+                <p class="mt-2 text-[11px] text-violet-50">You're on a 5-day streak. Keep going!</p>
               </div>
               <ul class="mt-3 space-y-2">
                 {
                   tasks.map((t) => (
-                    <li class="flex items-center gap-2.5 rounded-xl border border-slate-200 bg-white px-3 py-2">
+                    <li class="flex items-center gap-2.5 rounded-xl border border-zinc-200 bg-white px-3 py-2">
                       <span
                         class:list={[
                           'flex size-[18px] shrink-0 items-center justify-center rounded-full border-2',
-                          t.done ? 'border-primary bg-primary text-white' : 'border-slate-300',
+                          t.done ? 'border-primary bg-primary text-white' : 'border-zinc-300',
                         ]}
                       >
                         {t.done && <Check class="size-2.5" />}
                       </span>
                       <div class="min-w-0 flex-1">
-                        <p class:list={['truncate text-[12px] font-medium', t.done ? 'text-slate-400 line-through' : 'text-slate-800']}>{t.title}</p>
-                        <p class="text-[10px] text-slate-400">{t.meta}</p>
+                        <p class:list={['truncate text-[12px] font-medium', t.done ? 'text-zinc-400 line-through' : 'text-zinc-800']}>{t.title}</p>
+                        <p class="text-[10px] text-zinc-400">{t.meta}</p>
                       </div>
                       <span class:list={['rounded-md px-1.5 py-0.5 text-[9px] font-semibold', t.tone]}>{t.tag}</span>
                     </li>
                   ))
                 }
               </ul>
-              <div class="mt-3 flex items-start gap-2 rounded-xl border border-blue-100 bg-blue-50 px-3 py-2 text-[10px] leading-snug text-blue-800">
+              <div class="mt-3 flex items-start gap-2 rounded-xl border border-violet-100 bg-violet-50 px-3 py-2 text-[10px] leading-snug text-violet-800">
                 <Sparkles class="mt-px size-3 shrink-0" />
                 Suggestion: move “Buy groceries” to 6 PM, when you usually shop.
               </div>
-              <div class="mt-auto flex items-center justify-around border-t border-slate-200 pt-3 text-slate-400">
+              <div class="mt-auto flex items-center justify-around border-t border-zinc-200 pt-3 text-zinc-400">
                 <ListTodo class="size-4 text-primary" />
                 <Calendar class="size-4" />
-                <span class="flex size-9 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-blue-600/30">
+                <span class="flex size-9 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-violet-600/30">
                   <Plus class="size-4" />
                 </span>
                 <Bell class="size-4" />
@@ -284,38 +285,38 @@ const vitals = [
 
         <div
           aria-hidden="true"
-          class="animate-float absolute bottom-6 left-0 z-30 hidden items-center gap-3 rounded-xl border border-slate-200 bg-white/95 p-3 pr-4 shadow-xl shadow-slate-900/10 backdrop-blur lg:flex"
+          class="animate-float absolute bottom-6 left-0 z-30 hidden items-center gap-3 rounded-xl border border-zinc-200 bg-white/95 p-3 pr-4 shadow-xl shadow-zinc-900/10 backdrop-blur lg:flex"
           style="animation-delay: -2s"
         >
-          <span class="flex size-9 items-center justify-center rounded-lg bg-slate-900 text-white"><MonitorSmartphone class="size-4" /></span>
+          <span class="flex size-9 items-center justify-center rounded-lg bg-zinc-900 text-white"><MonitorSmartphone class="size-4" /></span>
           <div class="text-left">
             <p class="text-xs font-semibold text-foreground">Synced across devices</p>
-            <p class="text-[11px] text-slate-500">Phone, tablet and web</p>
+            <p class="text-[11px] text-zinc-500">Phone, tablet and web</p>
           </div>
         </div>
 
         <div
           aria-hidden="true"
-          class="animate-float absolute top-4 right-0 z-30 hidden items-center gap-3 rounded-xl border border-slate-200 bg-white/95 p-3 pr-4 shadow-xl shadow-slate-900/10 backdrop-blur lg:flex"
+          class="animate-float absolute top-4 right-0 z-30 hidden items-center gap-3 rounded-xl border border-zinc-200 bg-white/95 p-3 pr-4 shadow-xl shadow-zinc-900/10 backdrop-blur lg:flex"
           style="animation-delay: -4s"
         >
           <span class="flex size-9 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600"><LockKeyhole class="size-4" /></span>
           <div class="text-left">
             <p class="text-xs font-semibold text-foreground">Private by design</p>
-            <p class="text-[11px] text-slate-500">No ads. Your data stays yours.</p>
+            <p class="text-[11px] text-zinc-500">No ads. Your data stays yours.</p>
           </div>
         </div>
       </div>
 
       <div class="mt-14 flex flex-col items-center gap-4">
-        <p class="text-xs font-semibold tracking-[0.14em] text-slate-400 uppercase">The Rachna app family</p>
+        <p class="text-xs font-semibold tracking-[0.14em] text-zinc-400 uppercase">The Rachna app family</p>
         <ul class="flex flex-wrap items-center justify-center gap-2.5">
           {
             products.map(({ name, icon: Icon, accent }) => (
               <li>
                 <a
                   href="#products"
-                  class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white py-1.5 pr-3.5 pl-1.5 text-sm font-medium text-slate-700 shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-colors hover:border-slate-300 hover:text-foreground"
+                  class="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white py-1.5 pr-3.5 pl-1.5 text-sm font-medium text-zinc-700 shadow-[0_1px_2px_rgba(24,24,27,0.04)] transition-colors hover:border-zinc-300 hover:text-foreground"
                 >
                   <span class:list={['flex size-7 items-center justify-center rounded-full text-white', accent.solid]}>
                     <Icon class="size-3.5" />

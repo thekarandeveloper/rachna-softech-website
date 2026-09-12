@@ -16,12 +16,12 @@ const { eyebrow, title, lead, align = 'center', dark = false } = Astro.props;
 <div class:list={['space-y-4', align === 'center' ? 'mx-auto max-w-2xl text-center' : 'max-w-2xl']} data-reveal>
   {
     eyebrow && (
-      <span class:list={['eyebrow', dark && 'border-blue-400/25 bg-blue-400/10 text-blue-300']}>
+      <span class:list={['eyebrow', dark && 'border-violet-400/25 bg-violet-400/10 text-violet-300']}>
         <Sparkles class="size-3.5" />
         {eyebrow}
       </span>
     )
   }
   <h2 class:list={['section-title', dark && 'text-white']} set:html={title} />
-  {lead && <p class:list={['section-lead', dark && 'text-slate-400']}>{lead}</p>}
+  {lead && <p class:list={['section-lead', dark && 'text-zinc-400']}>{lead}</p>}
 </div>

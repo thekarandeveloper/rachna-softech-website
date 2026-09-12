@@ -50,7 +50,7 @@ With no configuration, the form opens the visitor's email app with their message
 
 Everything the site needs ships from this repository and is served from Vercel's own edge network:
 
-- **Fonts:** Inter and Geist Mono are bundled through Fontsource, and the main font file is preloaded.
+- **Fonts:** Plus Jakarta Sans and Geist Mono are bundled through Fontsource, and the main font file is preloaded.
 - **Photos:** stored in `src/assets/images/` and converted to responsive AVIF/WebP at build time.
 - **Icons and illustrations:** inline SVG from Lucide and Simple Icons.
 - **No tracking or external scripts.** The Content Security Policy only allows the site's own origin.
@@ -97,4 +97,3 @@ Photos are from [Unsplash](https://unsplash.com/license) and [Pexels](https://ww
 | `office-bright.jpg` | Pexels 3184357 (fauxels) |
 | `team-collab.jpg` | Unsplash photo-1522071820081 |
 | `workshop.jpg` | Unsplash photo-1552664730 |
-| `laptops-topdown.jpg` | Unsplash photo-1519389950473 |

@@ -39,7 +39,7 @@ export const products: Product[] = [
     status: 'In development',
     url: '',
     icon: ListTodo,
-    accent: { solid: 'bg-blue-600', soft: 'from-blue-50', text: 'text-blue-600' },
+    accent: { solid: 'bg-violet-600', soft: 'from-violet-50', text: 'text-violet-600' },
     schemaCategory: 'UtilitiesApplication',
   },
   {
@@ -81,7 +81,7 @@ export const products: Product[] = [
     status: 'Coming soon',
     url: '',
     icon: FileText,
-    accent: { solid: 'bg-amber-500', soft: 'from-amber-50', text: 'text-amber-600' },
+    accent: { solid: 'bg-sky-500', soft: 'from-sky-50', text: 'text-sky-600' },
     schemaCategory: 'UtilitiesApplication',
   },
   {
@@ -95,7 +95,7 @@ export const products: Product[] = [
     status: 'Coming soon',
     url: '',
     icon: CalendarCheck,
-    accent: { solid: 'bg-violet-600', soft: 'from-violet-50', text: 'text-violet-600' },
+    accent: { solid: 'bg-amber-500', soft: 'from-amber-50', text: 'text-amber-600' },
     schemaCategory: 'LifestyleApplication',
   },
 ];
@@ -104,9 +104,9 @@ export const productCategories = ['All', ...new Set(products.map((p) => p.catego
 
 export const statusStyles: Record<ProductStatus, string> = {
   Live: 'border-emerald-200 bg-emerald-50 text-emerald-700',
-  Beta: 'border-blue-200 bg-blue-50 text-blue-700',
+  Beta: 'border-violet-200 bg-violet-50 text-violet-700',
   'In development': 'border-amber-200 bg-amber-50 text-amber-700',
-  'Coming soon': 'border-slate-200 bg-slate-50 text-slate-600',
+  'Coming soon': 'border-zinc-200 bg-zinc-50 text-zinc-600',
 };
 
 export function productCta(product: Product) {

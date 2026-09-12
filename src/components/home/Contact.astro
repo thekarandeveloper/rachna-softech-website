@@ -1,9 +1,7 @@
 ---
-import { Picture } from 'astro:assets';
 import { ArrowRight, Clock, Mail, MapPin, Phone, Sparkles } from '@lucide/astro';
 import { site, hasAddress, fullAddress } from '../../config/site';
 import { products } from '../../data/products';
-import laptops from '../../assets/images/laptops-topdown.jpg';
 
 const nextSteps = [
   'We read every message ourselves',
@@ -18,39 +16,38 @@ const endpoint = site.contactFormEndpoint;
 
 <section id="contact" class="bg-white py-24 sm:py-28">
   <div class="container-x">
-    <div class="grid overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-2xl shadow-slate-900/[0.06] lg:grid-cols-5" data-reveal>
-      <div class="relative isolate overflow-hidden bg-ink p-8 text-white sm:p-10 lg:col-span-2">
-        <Picture
-          src={laptops}
-          formats={['avif', 'webp']}
-          widths={[480, 800]}
-          sizes="(min-width: 1024px) 460px, 100vw"
-          alt=""
-          class="absolute inset-0 -z-20 h-full w-full object-cover opacity-25"
-          pictureAttributes={{ class: 'contents' }}
-        />
-        <div aria-hidden="true" class="absolute inset-0 -z-10 bg-gradient-to-br from-ink/85 via-ink/90 to-blue-950/90"></div>
+    <div
+      class="grid overflow-hidden rounded-[2rem] border border-zinc-200/70 bg-white shadow-[0_30px_80px_-40px_rgba(124,58,237,0.35)] lg:grid-cols-5"
+      data-reveal
+    >
+      <div class="relative isolate overflow-hidden bg-gradient-to-br from-violet-100 via-violet-50 to-fuchsia-50 p-8 sm:p-10 lg:col-span-2">
+        <div aria-hidden="true" class="pointer-events-none absolute -top-20 -right-20 -z-10 size-64 rounded-full bg-violet-200/60 blur-2xl"></div>
+        <div aria-hidden="true" class="pointer-events-none absolute -bottom-24 -left-16 -z-10 size-72 rounded-full bg-fuchsia-200/40 blur-2xl"></div>
 
-        <span class="eyebrow border-blue-400/25 bg-blue-400/10 text-blue-300">
+        <span class="eyebrow bg-white/80">
           <Sparkles class="size-3.5" /> Contact
         </span>
-        <h2 class="mt-5 text-3xl font-bold tracking-tight sm:text-4xl" style="letter-spacing: -0.025em">Let's work together</h2>
-        <p class="mt-4 leading-relaxed text-slate-300">
-          Have a project, partnership or business idea in mind, or a question about our apps? Send us a message and the right person from our team will get back to you.
+        <h2 class="mt-5 text-3xl font-bold tracking-tight text-foreground sm:text-4xl" style="letter-spacing: -0.03em">Let's work together</h2>
+        <p class="mt-4 leading-relaxed text-zinc-600">
+          Have a project, partnership or business idea in mind, or a question about our apps? Send us a message and the right person from our
+          team will get back to you.
         </p>
 
         <ul class="mt-8 space-y-3.5 text-sm">
           <li>
-            <a href={`mailto:${site.email}`} class="inline-flex items-center gap-3 text-slate-200 transition-colors hover:text-white">
-              <span class="flex size-9 items-center justify-center rounded-lg border border-white/10 bg-white/5"><Mail class="size-4" /></span>
+            <a href={`mailto:${site.email}`} class="inline-flex items-center gap-3 font-medium text-zinc-700 transition-colors hover:text-primary">
+              <span class="flex size-10 items-center justify-center rounded-2xl bg-white text-primary shadow-sm"><Mail class="size-4" /></span>
               {site.email}
             </a>
           </li>
           {
             site.phone && (
               <li>
-                <a href={`tel:${site.phone.replace(/\s/g, '')}`} class="inline-flex items-center gap-3 text-slate-200 transition-colors hover:text-white">
-                  <span class="flex size-9 items-center justify-center rounded-lg border border-white/10 bg-white/5"><Phone class="size-4" /></span>
+                <a
+                  href={`tel:${site.phone.replace(/\s/g, '')}`}
+                  class="inline-flex items-center gap-3 font-medium text-zinc-700 transition-colors hover:text-primary"
+                >
+                  <span class="flex size-10 items-center justify-center rounded-2xl bg-white text-primary shadow-sm"><Phone class="size-4" /></span>
                   {site.phone}
                 </a>
               </li>
@@ -58,24 +55,24 @@ const endpoint = site.contactFormEndpoint;
           }
           {
             hasAddress && (
-              <li class="flex items-start gap-3 text-slate-200">
-                <span class="flex size-9 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/5"><MapPin class="size-4" /></span>
-                <span class="pt-2">{fullAddress}</span>
+              <li class="flex items-start gap-3 font-medium text-zinc-700">
+                <span class="flex size-10 shrink-0 items-center justify-center rounded-2xl bg-white text-primary shadow-sm"><MapPin class="size-4" /></span>
+                <span class="pt-2.5">{fullAddress}</span>
               </li>
             )
           }
-          <li class="inline-flex items-center gap-3 text-slate-200">
-            <span class="flex size-9 items-center justify-center rounded-lg border border-white/10 bg-white/5"><Clock class="size-4" /></span>
+          <li class="inline-flex items-center gap-3 font-medium text-zinc-700">
+            <span class="flex size-10 items-center justify-center rounded-2xl bg-white text-primary shadow-sm"><Clock class="size-4" /></span>
             Mon–Fri · 10:00 AM – 7:00 PM IST
           </li>
         </ul>
 
-        <div class="mt-10 border-t border-white/10 pt-8">
-          <p class="text-xs font-semibold tracking-[0.14em] text-slate-400 uppercase">What happens next</p>
+        <div class="mt-10 border-t border-violet-200/70 pt-8">
+          <p class="text-xs font-semibold tracking-[0.14em] text-violet-700/80 uppercase">What happens next</p>
           <ol class="mt-4 space-y-3">
             {
               nextSteps.map((step, i) => (
-                <li class="flex gap-3 text-sm text-slate-300">
+                <li class="flex gap-3 text-sm text-zinc-600">
                   <span class="flex size-6 shrink-0 items-center justify-center rounded-full bg-primary text-[11px] font-semibold text-white">{i + 1}</span>
                   <span class="pt-0.5">{step}</span>
                 </li>
@@ -86,8 +83,8 @@ const endpoint = site.contactFormEndpoint;
       </div>
 
       <div class="p-8 sm:p-10 lg:col-span-3">
-        <h3 class="text-xl font-semibold tracking-tight text-foreground">Send us a message</h3>
-        <p class="mt-1.5 text-sm text-slate-500">Fields marked * are required. Your details stay confidential.</p>
+        <h3 class="text-xl font-bold tracking-tight text-foreground">Send us a message</h3>
+        <p class="mt-1.5 text-sm text-zinc-500">Fields marked * are required. Your details stay confidential.</p>
 
         <form
           id="contact-form"
@@ -141,10 +138,10 @@ const endpoint = site.contactFormEndpoint;
 
           <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden" />
 
-          <label class="flex items-start gap-3 text-sm text-slate-600 sm:col-span-2">
-            <input type="checkbox" name="consent" required class="mt-0.5 size-4 shrink-0 rounded border-slate-300 accent-primary" />
+          <label class="flex items-start gap-3 text-sm text-zinc-600 sm:col-span-2">
+            <input type="checkbox" name="consent" required class="mt-0.5 size-4 shrink-0 rounded border-zinc-300 accent-primary" />
             <span>
-              I agree to the <a href="/privacy-policy/" class="font-medium text-primary underline decoration-blue-200 underline-offset-4 hover:decoration-primary">Privacy Policy</a>{' '}
+              I agree to the <a href="/privacy-policy/" class="font-semibold text-primary underline decoration-violet-200 underline-offset-4 hover:decoration-primary">Privacy Policy</a>{' '}
               and consent to being contacted about my message.
             </span>
           </label>
@@ -154,10 +151,10 @@ const endpoint = site.contactFormEndpoint;
               Send message
               <ArrowRight class="size-4" />
             </button>
-            <p class="text-xs text-slate-500">We never share your details with third parties.</p>
+            <p class="text-xs text-zinc-500">We never share your details with third parties.</p>
           </div>
 
-          <p id="form-status" role="status" aria-live="polite" hidden class="rounded-lg border px-4 py-3 text-sm sm:col-span-2"></p>
+          <p id="form-status" role="status" aria-live="polite" hidden class="rounded-xl border px-4 py-3 text-sm sm:col-span-2"></p>
         </form>
       </div>
     </div>
@@ -175,7 +172,7 @@ const endpoint = site.contactFormEndpoint;
     const endpoint = form.dataset.endpoint;
     const email = form.dataset.email ?? '';
 
-    // Links elsewhere on the page (product cards, "Become a partner", etc.) pre-fill the form.
+    // Links elsewhere on the page (product cards, "Partner with us", etc.) pre-fill the form.
     document.addEventListener('click', (event) => {
       const trigger = (event.target as Element | null)?.closest<HTMLElement>('[data-topic], [data-product]');
       if (!trigger) return;
@@ -187,7 +184,7 @@ const endpoint = site.contactFormEndpoint;
     const show = (message: string, ok: boolean) => {
       status.textContent = message;
       status.hidden = false;
-      status.className = `rounded-lg border px-4 py-3 text-sm sm:col-span-2 ${
+      status.className = `rounded-xl border px-4 py-3 text-sm sm:col-span-2 ${
         ok ? 'border-emerald-200 bg-emerald-50 text-emerald-800' : 'border-rose-200 bg-rose-50 text-rose-800'
       }`;
     };

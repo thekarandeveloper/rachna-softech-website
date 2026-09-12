@@ -66,7 +66,7 @@ export const site: SiteConfig = {
   ],
   locale: 'en_IN',
   lang: 'en-IN',
-  themeColor: '#2563eb',
+  themeColor: '#7C3AED',
 
   email: 'hello@teamrachna.tech',
   phone: '',

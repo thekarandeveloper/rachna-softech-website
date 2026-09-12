@@ -9,19 +9,19 @@ const domain = (process.env.SITE_URL ?? 'https://teamrachna.tech').replace(/^htt
 
 const R_PATH = 'M11 23.5V8.5h6a4.5 4.5 0 0 1 0 9h-6m5.2 0 5.3 6';
 
-/** The Rachna Softech mark: an "R" monogram with a spark, on a blue tile. */
+/** The Rachna Softech mark: an "R" monogram with a spark, on a violet tile. */
 function mark({ size, rounded = true, scale = 1 }) {
   const dims = size ? `width="${size}" height="${size}"` : '';
   return `<svg xmlns="http://www.w3.org/2000/svg" ${dims} viewBox="0 0 32 32">
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#3B82F6"/><stop offset="1" stop-color="#1D4ED8"/>
+      <stop stop-color="#A78BFA"/><stop offset="1" stop-color="#7C3AED"/>
     </linearGradient>
   </defs>
   <rect width="32" height="32" rx="${rounded ? 9 : 0}" fill="url(#g)"/>
   <g transform="translate(16 16) scale(${scale}) translate(-16 -16)">
     <path d="${R_PATH}" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="23.5" cy="8.5" r="2" fill="#BFDBFE"/>
+    <circle cx="23.5" cy="8.5" r="2" fill="#EDE9FE"/>
   </g>
 </svg>`;
 }
@@ -49,7 +49,7 @@ function toIco(images) {
   return Buffer.concat([header, dir, ...images.map((img) => img.buf)]);
 }
 
-const font = `font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif"`;
+const font = `font-family="'Plus Jakarta Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif"`;
 
 // App tiles (tasks, money, health, notes, habits) in each app's accent colour, plus a "more coming" tile.
 const habitDots = [0, 1, 2]
@@ -63,7 +63,7 @@ const glyphs = [
   habitDots,
   '<path d="M44 30v28M30 44h28" stroke="#fff" stroke-width="6" stroke-linecap="round"/>',
 ];
-const tileColors = ['#2563EB', '#059669', '#E11D48', '#F59E0B', '#7C3AED', '#0F172A'];
+const tileColors = ['#7C3AED', '#059669', '#E11D48', '#0284C7', '#F59E0B', '#1B1A22'];
 const productTiles = glyphs
   .map((glyph, i) => {
     const x = (i % 3) * 110;
@@ -75,33 +75,32 @@ const productTiles = glyphs
 const ogSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
     <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
-      <circle cx="2" cy="2" r="1.4" fill="#0F172A" fill-opacity="0.08"/>
+      <circle cx="2" cy="2" r="1.4" fill="#1B1A22" fill-opacity="0.08"/>
     </pattern>
     <radialGradient id="glow" cx="0.82" cy="0.18" r="0.6">
-      <stop offset="0" stop-color="#3B82F6" stop-opacity="0.20"/>
-      <stop offset="1" stop-color="#3B82F6" stop-opacity="0"/>
+      <stop offset="0" stop-color="#A78BFA" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#A78BFA" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1">
-      <stop stop-color="#3B82F6"/><stop offset="1" stop-color="#2563EB"/>
+      <stop stop-color="#A78BFA"/><stop offset="1" stop-color="#7C3AED"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="#FAFBFC"/>
-  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="1200" height="630" fill="#FBFAFF"/>
   <rect width="1200" height="630" fill="url(#glow)"/>
 
   <g transform="translate(80 70)">${mark({ size: 60 }).replace('<svg', '<svg x="0" y="0"')}</g>
-  <text x="156" y="111" ${font} font-size="30" font-weight="700" fill="#0F172A">Rachna <tspan fill="#94A3B8" font-weight="500">Softech</tspan></text>
+  <text x="156" y="111" ${font} font-size="30" font-weight="700" fill="#1B1A22">Rachna <tspan fill="#A1A1AA" font-weight="500">Softech</tspan></text>
 
-  <text x="80" y="290" ${font} font-size="62" font-weight="800" letter-spacing="-1.5" fill="#0F172A">We build tools that</text>
-  <text x="80" y="366" ${font} font-size="62" font-weight="800" letter-spacing="-1.5" fill="#2563EB">make life simpler.</text>
-  <text x="80" y="430" ${font} font-size="25" fill="#64748B">Apps for tasks, money, health &amp; more · Made in India</text>
+  <text x="80" y="290" ${font} font-size="62" font-weight="800" letter-spacing="-1.5" fill="#1B1A22">We build tools that</text>
+  <text x="80" y="366" ${font} font-size="62" font-weight="800" letter-spacing="-1.5" fill="#7C3AED">make life simpler.</text>
+  <text x="80" y="430" ${font} font-size="25" fill="#71717A">Apps for tasks, money, health &amp; more · Made in India</text>
 
-  <rect x="80" y="500" width="${domain.length * 13 + 70}" height="54" rx="27" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+  <rect x="80" y="500" width="${domain.length * 13 + 70}" height="54" rx="27" fill="#FFFFFF" stroke="#E7E5EC" stroke-width="2"/>
   <circle cx="110" cy="527" r="7" fill="#10B981"/>
-  <text x="128" y="535" ${font} font-size="22" font-weight="600" fill="#334155">${domain}</text>
+  <text x="128" y="535" ${font} font-size="22" font-weight="600" fill="#3F3F46">${domain}</text>
 
   <g transform="translate(820 190)">
-    <rect x="-24" y="-24" width="356" height="246" rx="28" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+    <rect x="-24" y="-24" width="356" height="246" rx="28" fill="#FFFFFF" stroke="#E7E5EC" stroke-width="2"/>
     ${productTiles}
   </g>
 </svg>`;

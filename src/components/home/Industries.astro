@@ -36,9 +36,9 @@ const audiences = [
 ].map((a) => ({ ...a, products: a.products.map(productByKey).filter((p) => p !== undefined) }));
 ---
 
-<section id="industries" class="border-b border-slate-200/80 bg-white py-24 sm:py-28">
+<section id="industries" class="border-b border-zinc-200/80 bg-white py-24 sm:py-28">
   <div class="container-x">
-    <div class="flex flex-col justify-between gap-6 border-b border-slate-200/80 pb-10 sm:flex-row sm:items-end" data-reveal>
+    <div class="flex flex-col justify-between gap-6 border-b border-zinc-200/80 pb-10 sm:flex-row sm:items-end" data-reveal>
       <div class="max-w-xl space-y-3">
         <p class="text-xs font-semibold tracking-[0.14em] text-primary uppercase">Who we build for</p>
         <h2 class="section-title">Made for the way people in India live</h2>
@@ -56,16 +56,16 @@ const audiences = [
       {
         audiences.map(({ icon: Icon, title, description, products }, i) => (
           <article class="card card-hover group flex flex-col p-6" data-reveal style={`--reveal-delay:${(i % 3) * 70}ms`}>
-            <span class="flex size-11 items-center justify-center rounded-xl bg-gradient-to-br from-blue-50 to-blue-100/60 text-primary ring-1 ring-blue-100">
+            <span class="flex size-11 items-center justify-center rounded-xl bg-gradient-to-br from-violet-50 to-violet-100/60 text-primary ring-1 ring-violet-100">
               <Icon class="size-5" />
             </span>
             <h3 class="mt-5 text-lg font-semibold tracking-tight text-foreground">{title}</h3>
-            <p class="mt-2 text-sm leading-relaxed text-slate-500">{description}</p>
+            <p class="mt-2 text-sm leading-relaxed text-zinc-500">{description}</p>
             <div class="mt-auto pt-5">
-              <p class="text-[11px] font-semibold tracking-wider text-slate-400 uppercase">Apps they'll love</p>
+              <p class="text-[11px] font-semibold tracking-wider text-zinc-400 uppercase">Apps they'll love</p>
               <ul class="mt-2 flex flex-wrap gap-1.5">
                 {products.map((p) => (
-                  <li class="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-2.5 py-0.5 text-xs font-medium text-slate-700">
+                  <li class="inline-flex items-center gap-1.5 rounded-full border border-zinc-200 bg-white px-2.5 py-0.5 text-xs font-medium text-zinc-700">
                     <span class:list={['size-1.5 rounded-full', p.accent.solid]} />
                     {p.name}
                   </li>
@@ -76,12 +76,12 @@ const audiences = [
         ))
       }
 
-      <article class="group flex flex-col rounded-xl border border-blue-200 bg-gradient-to-br from-blue-50 to-white p-6" data-reveal style="--reveal-delay:140ms">
+      <article class="group flex flex-col rounded-xl border border-violet-200 bg-gradient-to-br from-violet-50 to-white p-6" data-reveal style="--reveal-delay:140ms">
         <span class="flex size-11 items-center justify-center rounded-xl bg-primary text-white shadow-sm">
           <Store class="size-5" />
         </span>
         <h3 class="mt-5 text-lg font-semibold tracking-tight text-foreground">Businesses & brands</h3>
-        <p class="mt-2 text-sm leading-relaxed text-slate-600">
+        <p class="mt-2 text-sm leading-relaxed text-zinc-600">
           Want our apps for your employees, customers or community, or a custom tool built on our platform? Let's talk.
         </p>
         <div class="mt-auto pt-5">
