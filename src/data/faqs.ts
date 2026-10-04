@@ -1,6 +1,6 @@
 export const faqs = [
   {
-    q: 'What does Rachna Softech do?',
+    q: 'What does Rachna Labs do?',
     a: 'We are a product company. We design, build and run our own apps for everyday life, from to-do lists and personal finance to health and habits.',
   },
   {

@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // Public URL of the website: used for canonical links, Open Graph URLs, the sitemap and robots.txt.
 // Override at build time with: SITE_URL=https://www.example.com npm run build
-const SITE_URL = process.env.SITE_URL ?? 'https://teamrachna.tech';
+const SITE_URL = process.env.SITE_URL ?? 'https://www.rachnalabs.com';
 
 // https://astro.build/config
 export default defineConfig({

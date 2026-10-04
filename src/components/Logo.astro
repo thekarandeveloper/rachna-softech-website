@@ -9,7 +9,7 @@ const { class: className, wordmark = true, href = '/' } = Astro.props;
 const gradientId = `rs-${Math.random().toString(36).slice(2, 8)}`;
 ---
 
-<a href={href} class:list={['group inline-flex items-center gap-2.5 rounded-lg', className]} aria-label="Rachna Softech home">
+<a href={href} class:list={['group inline-flex items-center gap-2.5 rounded-lg', className]} aria-label="Rachna Labs home">
   <svg
     width="32"
     height="32"
@@ -36,7 +36,7 @@ const gradientId = `rs-${Math.random().toString(36).slice(2, 8)}`;
   {
     wordmark && (
       <span class="text-[17px] font-semibold tracking-tight text-foreground">
-        Rachna <span class="font-medium text-zinc-400">Softech</span>
+        Rachna <span class="font-medium text-zinc-400">Labs</span>
       </span>
     )
   }

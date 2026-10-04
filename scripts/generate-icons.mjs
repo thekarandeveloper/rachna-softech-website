@@ -5,11 +5,11 @@ import { writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 
 const out = (file) => fileURLToPath(new URL(`../public/${file}`, import.meta.url));
-const domain = (process.env.SITE_URL ?? 'https://teamrachna.tech').replace(/^https?:\/\//, '').replace(/\/$/, '');
+const domain = (process.env.SITE_URL ?? 'https://www.rachnalabs.com').replace(/^https?:\/\//, '').replace(/\/$/, '');
 
 const R_PATH = 'M11 23.5V8.5h6a4.5 4.5 0 0 1 0 9h-6m5.2 0 5.3 6';
 
-/** The Rachna Softech mark: an "R" monogram with a spark, on a violet tile. */
+/** The Rachna Labs mark: an "R" monogram with a spark, on a violet tile. */
 function mark({ size, rounded = true, scale = 1 }) {
   const dims = size ? `width="${size}" height="${size}"` : '';
   return `<svg xmlns="http://www.w3.org/2000/svg" ${dims} viewBox="0 0 32 32">
@@ -89,7 +89,7 @@ const ogSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630"
   <rect width="1200" height="630" fill="url(#glow)"/>
 
   <g transform="translate(80 70)">${mark({ size: 60 }).replace('<svg', '<svg x="0" y="0"')}</g>
-  <text x="156" y="111" ${font} font-size="30" font-weight="700" fill="#1B1A22">Rachna <tspan fill="#A1A1AA" font-weight="500">Softech</tspan></text>
+  <text x="156" y="111" ${font} font-size="30" font-weight="700" fill="#1B1A22">Rachna <tspan fill="#A1A1AA" font-weight="500">Labs</tspan></text>
 
   <text x="80" y="290" ${font} font-size="62" font-weight="800" letter-spacing="-1.5" fill="#1B1A22">We build tools that</text>
   <text x="80" y="366" ${font} font-size="62" font-weight="800" letter-spacing="-1.5" fill="#7C3AED">make life simpler.</text>

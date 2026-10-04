@@ -49,14 +49,15 @@ export interface SiteConfig {
 }
 
 export const site: SiteConfig = {
-  name: 'Rachna Softech',
+  name: 'Rachna Labs',
   legalName: 'Rachna Softech LLP',
   entityType: 'Limited Liability Partnership',
   tagline: 'Simple, useful apps that make everyday life easier.',
-  title: 'Rachna Softech LLP | Apps & Software Products from India',
+  title: 'Rachna Labs | Apps & Software Products from India',
   description:
-    'Rachna Softech LLP is an Indian software company building simple, useful apps for everyday life, from to-do lists and personal finance to health and habits.',
+    'Rachna Labs, from Rachna Softech LLP, is an Indian software company building simple, useful apps for everyday life, from to-do lists and personal finance to health and habits.',
   keywords: [
+    'Rachna Labs',
     'Rachna Softech',
     'Rachna Softech LLP',
     'Indian software company',
@@ -71,7 +72,7 @@ export const site: SiteConfig = {
   lang: 'en-IN',
   themeColor: '#7C3AED',
 
-  email: 'hello@teamrachna.tech',
+  email: 'hello@rachnalabs.com',
   phone: '',
   llpin: '',
   gstin: '',
@@ -92,7 +93,7 @@ export const site: SiteConfig = {
   grievanceOfficer: {
     name: 'Karan Kumar',
     designation: 'Designated Partner',
-    email: 'hello@teamrachna.tech',
+    email: 'hello@rachnalabs.com',
   },
 
   socials: {
