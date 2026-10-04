@@ -16,7 +16,7 @@ const {
   title,
   description = site.description,
   image = '/og-image.png',
-  imageAlt = `${site.legalName}: ${site.tagline}`,
+  imageAlt = `${site.name}: ${site.tagline}`,
   type = 'website',
   noindex = false,
   jsonLd = [],
@@ -25,7 +25,7 @@ const {
 const siteUrl = Astro.site ?? new URL(Astro.url.origin);
 const canonical = new URL(Astro.url.pathname, siteUrl).href;
 const imageUrl = new URL(image, siteUrl).href;
-const fullTitle = title ? `${title} | ${site.legalName}` : site.title;
+const fullTitle = title ? `${title} | ${site.name}` : site.title;
 const robots = noindex
   ? 'noindex, nofollow'
   : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
@@ -45,8 +45,8 @@ const graph = JSON.stringify({
 {site.googleSiteVerification && <meta name="google-site-verification" content={site.googleSiteVerification} />}
 <meta name="robots" content={robots} />
 <meta name="googlebot" content={robots} />
-<meta name="author" content={site.legalName} />
-<meta name="publisher" content={site.legalName} />
+<meta name="author" content={site.name} />
+<meta name="publisher" content={site.name} />
 <meta name="keywords" content={site.keywords.join(', ')} />
 <meta name="application-name" content={site.name} />
 <meta name="apple-mobile-web-app-title" content={site.name} />
@@ -59,7 +59,7 @@ const graph = JSON.stringify({
 
 <!-- Open Graph -->
 <meta property="og:type" content={type} />
-<meta property="og:site_name" content={site.legalName} />
+<meta property="og:site_name" content={site.name} />
 <meta property="og:locale" content={site.locale} />
 <meta property="og:url" content={canonical} />
 <meta property="og:title" content={fullTitle} />

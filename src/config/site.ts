@@ -55,7 +55,7 @@ export const site: SiteConfig = {
   tagline: 'Simple, useful apps that make everyday life easier.',
   title: 'Rachna Labs | Apps & Software Products from India',
   description:
-    'Rachna Labs, from Rachna Softech LLP, is an Indian software company building simple, useful apps for everyday life, from to-do lists and personal finance to health and habits.',
+    'Rachna Labs is an Indian software company building simple, useful apps for everyday life, from to-do lists and personal finance to health and habits.',
   keywords: [
     'Rachna Labs',
     'Rachna Softech',

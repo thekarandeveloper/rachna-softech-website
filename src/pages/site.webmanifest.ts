@@ -3,7 +3,7 @@ import { site } from '../config/site';
 
 export const GET: APIRoute = () => {
   const manifest = {
-    name: site.legalName,
+    name: site.name,
     short_name: site.name,
     description: site.description,
     lang: site.lang,
