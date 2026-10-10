@@ -52,25 +52,26 @@ export const site: SiteConfig = {
   name: 'Rachna Labs',
   legalName: 'Rachna Softech LLP',
   entityType: 'Limited Liability Partnership',
-  tagline: 'Simple, useful apps that make everyday life easier.',
-  title: 'Rachna Labs | Apps & Software Products from India',
+  tagline: 'Technology, crafted around people.',
+  title: 'Rachna Labs (रचना) | Everyday apps, made in India',
   description:
-    'Rachna Labs is an Indian software company building simple, useful apps for everyday life, from to-do lists and personal finance to health and habits.',
+    'Rachna Labs (रचना) makes calm, useful apps for Indian homes: Plate for food, Grokul for learning, Beside for safety, MoneyMate for money, Paparazi for small businesses and Sakhi for women’s health. One design language, built natively for iPhone, Android and the web.',
   keywords: [
     'Rachna Labs',
-    'Rachna Softech',
+    'रचना',
     'Rachna Softech LLP',
-    'Indian software company',
-    'software products company India',
-    'to-do list app',
-    'personal finance app India',
-    'expense tracker app',
-    'health tracker app',
-    'habit tracker app',
+    'Indian app company',
+    'made in India apps',
+    'Plate food logging app India',
+    'Sakhi menstrual companion',
+    'MoneyMate finance app',
+    'Beside safety app',
+    'Grokul education app',
+    'Paparazi marketing app',
   ],
   locale: 'en_IN',
   lang: 'en-IN',
-  themeColor: '#7C3AED',
+  themeColor: '#FBF3E6',
 
   email: 'hello@rachnalabs.com',
   phone: '',
@@ -130,10 +131,10 @@ export const socialLinks = (
   .map(([label, href]) => ({ label, href }));
 
 export const nav = [
-  { label: 'Products', href: '/#products' },
-  { label: 'Platform', href: '/#platform' },
-  { label: 'How we build', href: '/#process' },
-  { label: 'Company', href: '/#about' },
+  { label: 'Mission', href: '/#mission' },
+  { label: 'Journey', href: '/#journey' },
+  { label: 'Ecosystem', href: '/#ecosystem' },
+  { label: 'Apps', href: '/#apps' },
   { label: 'FAQ', href: '/#faq' },
 ];
 

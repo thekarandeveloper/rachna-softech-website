@@ -1,53 +1,41 @@
 ---
-import { ArrowRight, Clock, Mail, MapPin, Phone, Sparkles } from '@lucide/astro';
+import AppIcon from '../ui/AppIcon.astro';
 import { site, hasAddress, fullAddress } from '../../config/site';
 import { products } from '../../data/products';
-
-const nextSteps = [
-  'We read every message ourselves',
-  'The right person from our team replies within one business day',
-  'We set up a quick call and agree on clear next steps',
-];
 
 const topics = ['Business enquiry', 'Partnership', 'Product enquiry', 'Product idea', 'Careers', 'Press & media', 'Something else'];
 const productOptions = ['General / not sure', ...products.map((p) => p.name)];
 const endpoint = site.contactFormEndpoint;
 ---
 
-<section id="contact" class="bg-white py-24 sm:py-28">
+<section id="contact" data-theme="paper" class="relative isolate scroll-mt-12 overflow-hidden py-28 sm:py-40">
+  <div class="contact-glow pointer-events-none absolute inset-x-0 top-0 -z-10 h-[640px]" aria-hidden="true"></div>
+
   <div class="container-x">
-    <div
-      class="grid overflow-hidden rounded-[2rem] border border-zinc-200/70 bg-white shadow-[0_30px_80px_-40px_rgba(124,58,237,0.35)] lg:grid-cols-5"
-      data-reveal
-    >
-      <div class="relative isolate overflow-hidden bg-gradient-to-br from-violet-100 via-violet-50 to-fuchsia-50 p-8 sm:p-10 lg:col-span-2">
-        <div aria-hidden="true" class="pointer-events-none absolute -top-20 -right-20 -z-10 size-64 rounded-full bg-violet-200/60 blur-2xl"></div>
-        <div aria-hidden="true" class="pointer-events-none absolute -bottom-24 -left-16 -z-10 size-72 rounded-full bg-fuchsia-200/40 blur-2xl"></div>
+    <div class="mx-auto max-w-3xl text-center" data-reveal>
+      <div class="flex justify-center -space-x-3">
+        {products.map((p) => <AppIcon product={p} class="size-14 ring-4 ring-[var(--page)]" />)}
+      </div>
+      <h2 class="mt-8 font-display text-[2.8rem] leading-[1.02] font-semibold tracking-[-0.045em] sm:text-[5rem]">Let’s build what India <span class="text-gradient">needs next.</span></h2>
+      <p class="section-lead mx-auto mt-5 max-w-xl">
+        A question about an app, a partnership or a role on the team: write to us. We read every message ourselves and reply within one
+        business day.
+      </p>
+    </div>
 
-        <span class="eyebrow bg-white/80">
-          <Sparkles class="size-3.5" /> Contact
-        </span>
-        <h2 class="mt-5 text-3xl font-bold tracking-tight text-foreground sm:text-4xl" style="letter-spacing: -0.03em">Let's work together</h2>
-        <p class="mt-4 leading-relaxed text-zinc-600">
-          Have a project, partnership or business idea in mind, or a question about our apps? Send us a message and the right person from our
-          team will get back to you.
-        </p>
-
-        <ul class="mt-8 space-y-3.5 text-sm">
+    <div class="mx-auto mt-14 grid max-w-5xl gap-10 rounded-[28px] bg-white/80 p-6 shadow-[0_30px_80px_-40px_rgba(29,29,31,0.25)] ring-1 ring-black/5 backdrop-blur sm:p-10 lg:grid-cols-[1fr_2fr]" data-reveal>
+      <div>
+        <h3 class="font-display text-2xl font-semibold tracking-tight text-ink">Say namaste</h3>
+        <ul class="mt-5 space-y-4 text-[15px]">
           <li>
-            <a href={`mailto:${site.email}`} class="inline-flex items-center gap-3 font-medium text-zinc-700 transition-colors hover:text-primary">
-              <span class="flex size-10 items-center justify-center rounded-2xl bg-white text-primary shadow-sm"><Mail class="size-4" /></span>
-              {site.email}
-            </a>
+            <span class="block text-xs text-muted-foreground">Email</span>
+            <a href={`mailto:${site.email}`} class="font-medium text-ink underline decoration-border underline-offset-4 hover:decoration-ink">{site.email}</a>
           </li>
           {
             site.phone && (
               <li>
-                <a
-                  href={`tel:${site.phone.replace(/\s/g, '')}`}
-                  class="inline-flex items-center gap-3 font-medium text-zinc-700 transition-colors hover:text-primary"
-                >
-                  <span class="flex size-10 items-center justify-center rounded-2xl bg-white text-primary shadow-sm"><Phone class="size-4" /></span>
+                <span class="block text-xs text-muted-foreground">Phone</span>
+                <a href={`tel:${site.phone.replace(/\s/g, '')}`} class="font-medium text-ink">
                   {site.phone}
                 </a>
               </li>
@@ -55,40 +43,22 @@ const endpoint = site.contactFormEndpoint;
           }
           {
             hasAddress && (
-              <li class="flex items-start gap-3 font-medium text-zinc-700">
-                <span class="flex size-10 shrink-0 items-center justify-center rounded-2xl bg-white text-primary shadow-sm"><MapPin class="size-4" /></span>
-                <span class="pt-2.5">{fullAddress}</span>
+              <li>
+                <span class="block text-xs text-muted-foreground">Office</span>
+                <span class="text-ink">{fullAddress}</span>
               </li>
             )
           }
-          <li class="inline-flex items-center gap-3 font-medium text-zinc-700">
-            <span class="flex size-10 items-center justify-center rounded-2xl bg-white text-primary shadow-sm"><Clock class="size-4" /></span>
-            Mon–Fri · 10:00 AM – 7:00 PM IST
+          <li>
+            <span class="block text-xs text-muted-foreground">Hours</span>
+            <span class="text-ink">Mon–Fri · 10:00 AM – 7:00 PM IST</span>
           </li>
         </ul>
-
-        <div class="mt-10 border-t border-violet-200/70 pt-8">
-          <p class="text-xs font-semibold tracking-[0.14em] text-violet-700/80 uppercase">What happens next</p>
-          <ol class="mt-4 space-y-3">
-            {
-              nextSteps.map((step, i) => (
-                <li class="flex gap-3 text-sm text-zinc-600">
-                  <span class="flex size-6 shrink-0 items-center justify-center rounded-full bg-primary text-[11px] font-semibold text-white">{i + 1}</span>
-                  <span class="pt-0.5">{step}</span>
-                </li>
-              ))
-            }
-          </ol>
-        </div>
       </div>
 
-      <div class="p-8 sm:p-10 lg:col-span-3">
-        <h3 class="text-xl font-bold tracking-tight text-foreground">Send us a message</h3>
-        <p class="mt-1.5 text-sm text-zinc-500">Fields marked * are required. Your details stay confidential.</p>
-
-        <form
+      <form
           id="contact-form"
-          class="mt-8 grid gap-5 sm:grid-cols-2"
+          class="grid gap-5 sm:grid-cols-2"
           action={endpoint || `mailto:${site.email}`}
           method="post"
           enctype={endpoint ? undefined : 'text/plain'}
@@ -96,11 +66,11 @@ const endpoint = site.contactFormEndpoint;
           data-email={site.email}
         >
           <div>
-            <label for="cf-name" class="label">Full name <span class="text-primary">*</span></label>
+            <label for="cf-name" class="label">Full name <span class="text-sindoor">*</span></label>
             <input id="cf-name" name="name" type="text" autocomplete="name" required maxlength="120" class="input" placeholder="Aarav Sharma" />
           </div>
           <div>
-            <label for="cf-email" class="label">Email <span class="text-primary">*</span></label>
+            <label for="cf-email" class="label">Email <span class="text-sindoor">*</span></label>
             <input id="cf-email" name="email" type="email" autocomplete="email" required maxlength="160" class="input" placeholder="aarav@company.com" />
           </div>
           <div>
@@ -118,13 +88,13 @@ const endpoint = site.contactFormEndpoint;
             </select>
           </div>
           <div>
-            <label for="cf-product" class="label">Product</label>
+            <label for="cf-product" class="label">App</label>
             <select id="cf-product" name="product" class="input">
               {productOptions.map((p) => <option value={p}>{p}</option>)}
             </select>
           </div>
           <div class="sm:col-span-2">
-            <label for="cf-message" class="label">Message <span class="text-primary">*</span></label>
+            <label for="cf-message" class="label">Message <span class="text-sindoor">*</span></label>
             <textarea
               id="cf-message"
               name="message"
@@ -133,33 +103,38 @@ const endpoint = site.contactFormEndpoint;
               minlength="10"
               maxlength="4000"
               class="input"
-              placeholder="Tell us what you're looking for…"></textarea>
+              placeholder="Tell us what you have in mind…"></textarea>
           </div>
 
           <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden" />
 
-          <label class="flex items-start gap-3 text-sm text-zinc-600 sm:col-span-2">
-            <input type="checkbox" name="consent" required class="mt-0.5 size-4 shrink-0 rounded border-zinc-300 accent-primary" />
+          <label class="flex items-start gap-3 text-sm text-muted-foreground sm:col-span-2">
+            <input type="checkbox" name="consent" required class="mt-0.5 size-4 shrink-0 accent-ink" />
             <span>
-              I agree to the <a href="/privacy-policy/" class="font-semibold text-primary underline decoration-violet-200 underline-offset-4 hover:decoration-primary">Privacy Policy</a>{' '}
+              I agree to the <a href="/privacy-policy/" class="font-medium text-ink underline decoration-border underline-offset-4 hover:decoration-ink">Privacy Policy</a>{' '}
               and consent to being contacted about my message.
             </span>
           </label>
 
           <div class="flex flex-col gap-4 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between">
-            <button type="submit" class="btn btn-primary btn-lg w-full disabled:cursor-wait disabled:opacity-70 sm:w-auto">
-              Send message
-              <ArrowRight class="size-4" />
-            </button>
-            <p class="text-xs text-zinc-500">We never share your details with third parties.</p>
+            <button type="submit" class="btn btn-primary btn-lg w-full disabled:cursor-wait disabled:opacity-70 sm:w-auto">Send message</button>
+            <p class="text-xs text-muted-foreground">We never share your details with anyone else.</p>
           </div>
 
-          <p id="form-status" role="status" aria-live="polite" hidden class="rounded-xl border px-4 py-3 text-sm sm:col-span-2"></p>
+          <p id="form-status" role="status" aria-live="polite" hidden class="rounded-2xl px-4 py-3 text-sm sm:col-span-2"></p>
         </form>
-      </div>
     </div>
   </div>
 </section>
+
+<style>
+  .contact-glow {
+    background:
+      radial-gradient(28rem 20rem at 32% 38%, rgb(246 194 122 / 0.45), transparent 70%),
+      radial-gradient(26rem 20rem at 68% 42%, rgb(243 166 194 / 0.4), transparent 70%),
+      radial-gradient(24rem 16rem at 50% 62%, rgb(127 209 196 / 0.28), transparent 70%);
+  }
+</style>
 
 <script>
   const form = document.getElementById('contact-form') as HTMLFormElement | null;
@@ -184,9 +159,7 @@ const endpoint = site.contactFormEndpoint;
     const show = (message: string, ok: boolean) => {
       status.textContent = message;
       status.hidden = false;
-      status.className = `rounded-xl border px-4 py-3 text-sm sm:col-span-2 ${
-        ok ? 'border-emerald-200 bg-emerald-50 text-emerald-800' : 'border-rose-200 bg-rose-50 text-rose-800'
-      }`;
+      status.className = `rounded-2xl px-4 py-3 text-sm font-medium sm:col-span-2 ${ok ? 'bg-[#E9F0DD] text-[#2F4F18]' : 'bg-[#F8DFDA] text-[#8E2414]'}`;
     };
 
     form.addEventListener('submit', async (event) => {

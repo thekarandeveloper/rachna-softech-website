@@ -1,12 +1,10 @@
-import { CalendarCheck, FileText, HeartPulse, ListTodo, Wallet } from '@lucide/astro';
-
 /**
- * The product portfolio: simple, useful apps for everyday life. Edit names,
- * descriptions and statuses here and the hero, products section, footer,
- * contact form and structured data all update.
+ * The Rachna Labs family of apps. Edit names, copy and statuses here and the hero,
+ * the apps section, the footer, the contact form and the
+ * structured data all update.
  *
- * `key` selects the mini preview drawn on the product card (tasks, money,
- * health, notes, habits); any other key falls back to a generic preview.
+ * `tint` is the app icon's gradient on this website, not its in-app brand, which lives in
+ * `rachna-kit/tokens/brands/<key>.json`.
  */
 
 export type ProductStatus = 'Live' | 'Beta' | 'In development' | 'Coming soon';
@@ -14,116 +12,127 @@ export type ProductStatus = 'Live' | 'Beta' | 'In development' | 'Coming soon';
 export interface Product {
   key: string;
   name: string;
-  tagline: string;
+  /** What the product is about, in Hindi (Devanagari). */
+  hindi: string;
   category: string;
+  tagline: string;
   description: string;
   features: string[];
   status: ProductStatus;
-  /** Public product URL. Shown as "Open product" once the status is Live. */
+  /** Where people can get it. Shown as the call to action once the status is Live. */
   url: string;
-  icon: typeof ListTodo;
-  accent: { solid: string; soft: string; text: string };
+  urlLabel: string;
+  platforms: string;
+  /** The app icon's gradient on this website (top-left to bottom-right). */
+  tint: [string, string];
   /** schema.org applicationCategory used in structured data. */
   schemaCategory: string;
 }
 
 export const products: Product[] = [
   {
-    key: 'tasks',
-    name: 'Rachna Tasks',
-    tagline: 'To-do lists & daily planner',
-    category: 'Productivity',
+    key: 'plate',
+    name: 'Plate',
+    hindi: 'भोजन',
+    category: 'Food',
+    tagline: 'Log meals the Indian way',
     description:
-      'Plan your day, organise tasks into lists and never miss what matters, with smart reminders that fit your routine.',
-    features: ['Smart lists & reminders', 'Recurring tasks', 'Sync across devices'],
+      'Search 23,000+ foods in Hindi or English and log them by katori, roti or grams. Every number comes from a named source. Free, with no ads.',
+    features: ['Katori & roti portions', 'Hindi or English search', 'Food data API for other apps'],
     status: 'In development',
     url: '',
-    icon: ListTodo,
-    accent: { solid: 'bg-violet-600', soft: 'from-violet-50', text: 'text-violet-600' },
-    schemaCategory: 'UtilitiesApplication',
-  },
-  {
-    key: 'money',
-    name: 'Rachna Money',
-    tagline: 'Personal finance & expenses',
-    category: 'Finance',
-    description:
-      'Track spending, set budgets and see where your money goes, with UPI-friendly expense tracking and simple monthly insights.',
-    features: ['Expense tracking', 'Budgets & savings goals', 'Monthly insights'],
-    status: 'In development',
-    url: '',
-    icon: Wallet,
-    accent: { solid: 'bg-emerald-600', soft: 'from-emerald-50', text: 'text-emerald-600' },
-    schemaCategory: 'FinanceApplication',
-  },
-  {
-    key: 'health',
-    name: 'Rachna Health',
-    tagline: 'Health & wellness tracker',
-    category: 'Health & wellness',
-    description:
-      'Track steps, sleep, water and medicines in one calm app, with gentle reminders and a clear weekly summary.',
-    features: ['Steps, sleep & water', 'Medicine reminders', 'Weekly health summary'],
-    status: 'Coming soon',
-    url: '',
-    icon: HeartPulse,
-    accent: { solid: 'bg-rose-600', soft: 'from-rose-50', text: 'text-rose-600' },
+    urlLabel: '',
+    platforms: 'Web first, then iPhone & Android',
+    tint: ['#2BB47C', '#0E7350'],
     schemaCategory: 'HealthApplication',
   },
   {
-    key: 'notes',
-    name: 'Rachna Notes',
-    tagline: 'Notes & daily journal',
-    category: 'Productivity',
-    description:
-      'Capture ideas, keep a daily journal and find anything in seconds, with helpful AI summaries and privacy by default.',
-    features: ['Notes & journal', 'Fast search', 'AI summaries'],
+    key: 'grokul',
+    name: 'Grokul',
+    hindi: 'शिक्षा',
+    category: 'Education',
+    tagline: 'Learning, the gurukul way',
+    description: 'A calm place to learn, built for how Indian students actually study. More soon.',
+    features: ['Native on iPhone & Android', 'Made for Indian learners'],
     status: 'Coming soon',
     url: '',
-    icon: FileText,
-    accent: { solid: 'bg-sky-500', soft: 'from-sky-50', text: 'text-sky-600' },
-    schemaCategory: 'UtilitiesApplication',
+    urlLabel: '',
+    platforms: 'iPhone & Android',
+    tint: ['#6676E0', '#2E3C93'],
+    schemaCategory: 'EducationalApplication',
   },
   {
-    key: 'habits',
-    name: 'Rachna Habits',
-    tagline: 'Habit & routine tracker',
-    category: 'Health & wellness',
-    description:
-      'Build better routines with streaks, gentle nudges and progress you can actually see, one small step at a time.',
-    features: ['Streaks & goals', 'Gentle nudges', 'Progress charts'],
+    key: 'beside',
+    name: 'Beside',
+    hindi: 'सुरक्षा',
+    category: 'Safety',
+    tagline: 'Someone always beside you',
+    description: 'Let the people you trust know where you are, and reach them in one tap when it matters, from your phone or your watch.',
+    features: ['Location with people you trust', 'One-tap SOS', 'Works from your watch'],
     status: 'Coming soon',
     url: '',
-    icon: CalendarCheck,
-    accent: { solid: 'bg-amber-500', soft: 'from-amber-50', text: 'text-amber-600' },
+    urlLabel: '',
+    platforms: 'iPhone, Android & watch',
+    tint: ['#2CC0B2', '#0B6E6D'],
     schemaCategory: 'LifestyleApplication',
+  },
+  {
+    key: 'moneymate',
+    name: 'MoneyMate',
+    hindi: 'पैसा',
+    category: 'Finance',
+    tagline: 'Your rupees, clearly',
+    description: 'See where your money goes, plan your month and save a little more, like a gullak that does the maths for you.',
+    features: ['Spending at a glance', 'Monthly budgets', 'Made for ₹'],
+    status: 'In development',
+    url: '',
+    urlLabel: '',
+    platforms: 'iPhone & Android',
+    tint: ['#F6C445', '#D98E0B'],
+    schemaCategory: 'FinanceApplication',
+  },
+  {
+    key: 'paparazi',
+    name: 'Paparazi',
+    hindi: 'प्रचार',
+    category: 'Marketing',
+    tagline: 'Get your business seen',
+    description: 'Marketing made simple for small businesses and the people who run them. More soon.',
+    features: ['For small businesses', 'Native on iPhone & Android'],
+    status: 'Coming soon',
+    url: '',
+    urlLabel: '',
+    platforms: 'iPhone & Android',
+    tint: ['#EE5A8F', '#B0154F'],
+    schemaCategory: 'BusinessApplication',
+  },
+  {
+    key: 'sakhi',
+    name: 'Sakhi',
+    hindi: 'सखी',
+    category: "Women's health",
+    tagline: 'A gentle menstrual companion',
+    description: 'Track your cycle, see what is coming and note how you feel, in a companion made with Indian women in mind.',
+    features: ['Period predictions', 'Symptoms, mood & sleep', 'Works offline'],
+    status: 'Live',
+    url: 'https://apps.apple.com/app/id6747256551',
+    urlLabel: 'Get it on the App Store',
+    platforms: 'iPhone',
+    tint: ['#F0609A', '#D1336F'],
+    schemaCategory: 'HealthApplication',
   },
 ];
 
-export const productCategories = ['All', ...new Set(products.map((p) => p.category))];
-
-export const statusStyles: Record<ProductStatus, string> = {
-  Live: 'border-emerald-200 bg-emerald-50 text-emerald-700',
-  Beta: 'border-violet-200 bg-violet-50 text-violet-700',
-  'In development': 'border-amber-200 bg-amber-50 text-amber-700',
-  'Coming soon': 'border-zinc-200 bg-zinc-50 text-zinc-600',
+export const statusLabel: Record<ProductStatus, string> = {
+  Live: 'Live',
+  Beta: 'Beta',
+  'In development': 'Being built',
+  'Coming soon': 'Coming soon',
 };
 
 export function productCta(product: Product) {
   if (product.status === 'Live' && product.url) {
-    return { label: `Open ${product.name}`, href: product.url, external: true };
+    return { label: product.urlLabel || `Open ${product.name}`, href: product.url, external: true };
   }
-  return { label: 'Get in touch', href: '/#contact', external: false };
-}
-
-export const productByKey = (key: string) => products.find((p) => p.key === key);
-
-/** The product announced in the hero badge: the first Live, then Beta, then In development product. */
-export function heroAnnouncement() {
-  const pick = (status: ProductStatus) => products.find((p) => p.status === status);
-  const featured = pick('Live') ?? pick('Beta') ?? pick('In development');
-  if (!featured) return 'A software products company from India';
-  if (featured.status === 'Live') return `${featured.name} is now live`;
-  if (featured.status === 'Beta') return `${featured.name} is now in beta`;
-  return `Now building ${featured.name}`;
+  return { label: 'Tell me when it’s ready', href: '/#contact', external: false };
 }

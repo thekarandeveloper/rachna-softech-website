@@ -22,12 +22,15 @@ export function baseSchemas(siteUrl: URL): Schema[] {
     description: site.description,
     slogan: site.tagline,
     email: site.email,
+    alternateName: 'रचना',
     knowsAbout: [
       'Mobile applications',
-      'Productivity software',
+      'Design systems',
+      'Food and nutrition software',
+      'Education software',
+      'Personal safety software',
       'Personal finance software',
-      'Health and fitness software',
-      'Artificial intelligence',
+      "Women's health software",
       'Product design',
     ],
     member: site.partners.map((p) => ({
@@ -95,7 +98,7 @@ export function webPageSchema(siteUrl: URL, pageUrl: string, name: string, descr
 /** The product portfolio as an ItemList of SoftwareApplication entries. */
 export function productsSchema(
   siteUrl: URL,
-  products: { name: string; tagline: string; description: string; schemaCategory: string }[],
+  products: { key: string; name: string; tagline: string; description: string; schemaCategory: string; platforms: string; url: string }[],
 ): Schema {
   return {
     '@type': 'ItemList',
@@ -109,8 +112,8 @@ export function productsSchema(
         alternateName: p.tagline,
         description: p.description,
         applicationCategory: p.schemaCategory,
-        operatingSystem: 'Android, iOS, Web',
-        url: `${siteUrl.href}#products`,
+        operatingSystem: p.platforms,
+        url: p.url || `${siteUrl.href}#app-${p.key}`,
         publisher: { '@id': `${siteUrl.href}#organization` },
       },
     })),

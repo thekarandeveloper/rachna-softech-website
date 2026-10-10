@@ -1,43 +1,14 @@
 ---
+/** The Rachna Labs wordmark: रचना in Rozha One, with "labs" set quietly beside it. */
 interface Props {
   class?: string;
-  wordmark?: boolean;
   href?: string;
 }
 
-const { class: className, wordmark = true, href = '/' } = Astro.props;
-const gradientId = `rs-${Math.random().toString(36).slice(2, 8)}`;
+const { class: className, href = '/' } = Astro.props;
 ---
 
-<a href={href} class:list={['group inline-flex items-center gap-2.5 rounded-lg', className]} aria-label="Rachna Labs home">
-  <svg
-    width="32"
-    height="32"
-    viewBox="0 0 32 32"
-    aria-hidden="true"
-    class="shrink-0 drop-shadow-[0_2px_6px_rgba(124,58,237,0.28)] transition-transform duration-300 group-hover:-rotate-6"
-  >
-    <defs>
-      <linearGradient id={gradientId} x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-        <stop stop-color="#A78BFA"></stop>
-        <stop offset="1" stop-color="#7C3AED"></stop>
-      </linearGradient>
-    </defs>
-    <rect width="32" height="32" rx="9" fill={`url(#${gradientId})`}></rect>
-    <path
-      d="M11 23.5V8.5h6a4.5 4.5 0 0 1 0 9h-6m5.2 0 5.3 6"
-      fill="none"
-      stroke="#fff"
-      stroke-width="2.6"
-      stroke-linecap="round"
-      stroke-linejoin="round"></path>
-    <circle cx="23.5" cy="8.5" r="2" fill="#EDE9FE"></circle>
-  </svg>
-  {
-    wordmark && (
-      <span class="text-[17px] font-semibold tracking-tight text-foreground">
-        Rachna <span class="font-medium text-zinc-400">Labs</span>
-      </span>
-    )
-  }
+<a href={href} class:list={['inline-flex items-baseline gap-1.5 rounded-lg', className]} aria-label="Rachna Labs home">
+  <span lang="hi" class="font-rozha text-[28px] leading-none">रचना</span>
+  <span class="font-display text-[17px] leading-none font-medium tracking-tight opacity-55">labs</span>
 </a>

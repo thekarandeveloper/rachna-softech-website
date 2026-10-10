@@ -1,14 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/home/Hero.astro';
-import Products from '../components/home/Products.astro';
-import Platform from '../components/home/Platform.astro';
-import Process from '../components/home/Process.astro';
-import Culture from '../components/home/Culture.astro';
-import WhyUs from '../components/home/WhyUs.astro';
-import Industries from '../components/home/Industries.astro';
-import WorkWithUs from '../components/home/WorkWithUs.astro';
-import About from '../components/home/About.astro';
+import Mission from '../components/home/Mission.astro';
+import Journey from '../components/home/Journey.astro';
+import Ecosystem from '../components/home/Ecosystem.astro';
+import Apps from '../components/home/Apps.astro';
 import FAQ from '../components/home/FAQ.astro';
 import Contact from '../components/home/Contact.astro';
 import { site } from '../config/site';
@@ -26,14 +22,10 @@ const jsonLd = [
 
 <BaseLayout jsonLd={jsonLd}>
   <Hero />
-  <Products />
-  <Platform />
-  <Process />
-  <Culture />
-  <WhyUs />
-  <Industries />
-  <WorkWithUs />
-  <About />
+  <Mission />
+  <Journey />
+  <Ecosystem />
+  <Apps />
   <FAQ />
   <Contact />
 </BaseLayout>

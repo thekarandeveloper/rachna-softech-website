@@ -1,37 +1,33 @@
 ---
 import { Plus } from '@lucide/astro';
-import SectionHeading from '../SectionHeading.astro';
 import { faqs } from '../../data/faqs';
 import { site } from '../../config/site';
 ---
 
-<section id="faq" class="border-b border-zinc-200/80 bg-background py-24 sm:py-28">
-  <div class="container-x grid gap-12 lg:grid-cols-12">
-    <div class="lg:col-span-4">
-      <SectionHeading align="left" eyebrow="FAQ" title="Questions, answered" />
-      <p class="mt-4 text-base leading-relaxed text-zinc-600" data-reveal>
-        Can't find what you're looking for? Write to us at{' '}
-        <a href={`mailto:${site.email}`} class="font-medium text-primary underline decoration-violet-200 underline-offset-4 hover:decoration-primary">{site.email}</a>{' '}
-        and we'll get back within one business day.
+<section id="faq" data-theme="paper" class="scroll-mt-12 py-28 sm:py-40">
+  <div class="container-x mx-auto max-w-3xl">
+    <div class="text-center" data-reveal>
+      <h2 class="section-title">Questions? Answers.</h2>
+      <p class="text-muted mt-5 text-lg">
+        Still curious? Write to us at{' '}
+        <a href={`mailto:${site.email}`} class="underline underline-offset-4">{site.email}</a>.
       </p>
     </div>
 
-    <div class="lg:col-span-8" data-reveal>
-      <div class="divide-y divide-zinc-200 rounded-2xl border border-zinc-200 bg-white">
-        {
-          faqs.map((faq, i) => (
-            <details class="group px-5 sm:px-6" name="faq" open={i === 0}>
-              <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-5 text-left text-[15px] font-semibold text-foreground [&::-webkit-details-marker]:hidden">
-                {faq.q}
-                <span class="flex size-7 shrink-0 items-center justify-center rounded-full border border-zinc-200 text-zinc-500 transition-all duration-300 group-open:rotate-45 group-open:border-violet-200 group-open:bg-violet-50 group-open:text-primary">
-                  <Plus class="size-4" />
-                </span>
-              </summary>
-              <p class="pr-4 pb-5 text-sm leading-relaxed text-zinc-600 sm:pr-12">{faq.a}</p>
-            </details>
-          ))
-        }
-      </div>
+    <div class="mt-14 border-b" style="border-color: var(--line)" data-reveal>
+      {
+        faqs.map((faq) => (
+          <details class="group border-t" style="border-color: var(--line)" name="faq">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-left font-display text-xl font-semibold tracking-[-0.02em] [&::-webkit-details-marker]:hidden">
+              {faq.q}
+              <span class="flex size-8 shrink-0 items-center justify-center rounded-full bg-white text-[#1d1d1f] transition-transform duration-300 group-open:rotate-45">
+                <Plus class="size-4" />
+              </span>
+            </summary>
+            <p class="text-muted pr-12 pb-6 text-[17px] leading-relaxed">{faq.a}</p>
+          </details>
+        ))
+      }
     </div>
   </div>
 </section>

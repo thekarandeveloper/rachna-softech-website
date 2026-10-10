@@ -1,34 +1,34 @@
 export const faqs = [
   {
     q: 'What does Rachna Labs do?',
-    a: 'We are a product company. We design, build and run our own apps for everyday life, from to-do lists and personal finance to health and habits.',
+    a: 'We design, build and run our own family of apps for Indian homes: Plate for food, Grokul for learning, Beside for safety, MoneyMate for money, Paparazi for small businesses and Sakhi for women’s health.',
   },
   {
-    q: 'Are the apps available yet?',
-    a: 'Our first apps are in development. Every product on this page shows its current stage: live, beta, in development or coming soon.',
+    q: 'Which apps can I use today?',
+    a: 'Sakhi is live on the App Store. Plate and MoneyMate are being built, and Grokul, Beside and Paparazi are coming soon. Each app on this page shows where it stands.',
   },
   {
-    q: 'Will the apps be free?',
-    a: 'We plan to offer free versions of our apps, with optional paid upgrades for advanced features. Pricing will always be clear and in Indian rupees.',
+    q: 'What is a Rachna account?',
+    a: 'One sign-in for every Rachna app, so you do not have to start over in each one. We are building it now. You will always choose what each app can see.',
   },
   {
-    q: 'Do the apps work together?',
-    a: 'Yes. All our apps share one account and one secure platform, so your data and settings sync across apps and devices.',
+    q: 'Why do the apps look and feel alike?',
+    a: 'They share Rachna Kit, our design system. Colours, type, spacing and motion are written once and turned into SwiftUI for iPhone, Jetpack Compose for Android and CSS for the web. Each app keeps its own colours.',
   },
   {
     q: 'How do you protect my data?',
-    a: 'Privacy is built into every app: encryption in transit and at rest, minimal data collection, and practices aligned with India’s Digital Personal Data Protection Act, 2023. We never sell your data.',
+    a: 'We collect as little as we can, never sell your data and keep analytics off until you agree. Our practices are aligned with India’s Digital Personal Data Protection Act, 2023.',
+  },
+  {
+    q: 'Will the apps be free?',
+    a: 'We plan for every app to have a free version. Some may offer optional paid upgrades, always priced clearly in rupees.',
   },
   {
     q: 'Can my business work with you?',
-    a: 'Yes. We partner with businesses on integrations, co-branded apps and custom tools built on our platform. Tell us about your idea through the contact form and we will get back within one business day.',
-  },
-  {
-    q: 'Can I suggest an app or a feature?',
-    a: 'Absolutely. Many of our ideas come from conversations with the people who use our apps. Write to us and tell us what would make your day simpler.',
+    a: 'Yes. Plate already offers a food data API that other apps can use, and we are open to partnerships. Tell us about your idea through the form below.',
   },
   {
     q: 'Are you hiring?',
-    a: 'We are always happy to meet talented designers, engineers and product people. Reach out through the contact form with your portfolio or profile.',
+    a: 'We are always happy to meet designers, engineers and product people who care about craft. Write to us with your work.',
   },
 ];

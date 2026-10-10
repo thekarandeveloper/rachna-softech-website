@@ -1,44 +1,36 @@
 ---
-import { ArrowRight, Menu, X } from '@lucide/astro';
+import { Menu, X } from '@lucide/astro';
 import Logo from './Logo.astro';
 import { nav } from '../config/site';
 ---
 
 <header
   id="site-header"
-  class="sticky top-0 z-50 w-full border-b border-transparent bg-white/75 backdrop-blur-xl transition-[border-color,box-shadow] duration-300 data-[scrolled]:border-zinc-200/80 data-[scrolled]:shadow-[0_8px_24px_-18px_rgba(24,24,27,0.25)]"
+  class="site-header sticky top-0 z-50 w-full backdrop-blur-2xl backdrop-saturate-150"
 >
-  <div class="container-x flex h-16 items-center justify-between gap-6">
-    <div class="flex items-center gap-8 lg:gap-10">
-      <Logo />
-      <nav aria-label="Primary" class="hidden md:block">
-        <ul class="flex items-center gap-0.5">
-          {
-            nav.map((item) => (
-              <li>
-                <a
-                  href={item.href}
-                  class="rounded-lg px-3 py-2 text-sm font-medium text-zinc-600 transition-colors hover:bg-zinc-100/80 hover:text-foreground"
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </nav>
-    </div>
+  <div class="container-x flex h-13 items-center justify-between gap-6">
+    <Logo />
 
-    <div class="flex items-center gap-1.5">
-      <a href="/#work-with-us" class="btn btn-ghost btn-sm hidden lg:inline-flex">Work with us</a>
-      <a href="/#contact" data-topic="Business enquiry" class="btn btn-primary btn-sm hidden sm:inline-flex">
-        Contact us
-        <ArrowRight class="size-3.5" />
-      </a>
+    <nav aria-label="Primary" class="absolute left-1/2 hidden -translate-x-1/2 md:block">
+      <ul class="flex items-center gap-7">
+        {
+          nav.map((item) => (
+            <li>
+              <a href={item.href} class="text-[13px] opacity-70 transition-opacity hover:opacity-100">
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a href="/#contact" data-topic="Business enquiry" class="btn btn-ink hidden h-8 px-4 text-[13px] sm:inline-flex">Contact</a>
       <button
         type="button"
         id="menu-toggle"
-        class="inline-flex size-10 items-center justify-center rounded-lg text-zinc-700 transition-colors hover:bg-zinc-100 md:hidden"
+        class="inline-flex size-9 items-center justify-center rounded-full md:hidden"
         aria-expanded="false"
         aria-controls="mobile-menu"
         aria-label="Open menu"
@@ -49,30 +41,37 @@ import { nav } from '../config/site';
     </div>
   </div>
 
-  <div id="mobile-menu" class="hidden border-t border-zinc-200/80 bg-white md:hidden">
-    <nav aria-label="Mobile" class="container-x py-4">
+  <div id="mobile-menu" class="hidden h-[calc(100dvh-3.25rem)] md:hidden">
+    <nav aria-label="Mobile" class="container-x py-6">
       <ul class="grid gap-1">
         {
           nav.map((item) => (
             <li>
-              <a
-                href={item.href}
-                data-close-menu
-                class="block rounded-lg px-3 py-2.5 text-[15px] font-medium text-zinc-700 hover:bg-zinc-50"
-              >
+              <a href={item.href} data-close-menu class="block py-2.5 font-display text-[28px] font-semibold tracking-tight">
                 {item.label}
               </a>
             </li>
           ))
         }
       </ul>
-      <a href="/#contact" data-close-menu data-topic="Business enquiry" class="btn btn-primary btn-md mt-4 w-full">
-        Contact us
-        <ArrowRight class="size-4" />
-      </a>
+      <a href="/#contact" data-close-menu data-topic="Business enquiry" class="btn btn-ink btn-lg mt-8 w-full">Contact us</a>
     </nav>
   </div>
 </header>
+
+<style>
+  .site-header {
+    color: var(--ink);
+    background-color: color-mix(in srgb, var(--page) 78%, transparent);
+    transition: background-color 0.9s cubic-bezier(0.4, 0, 0.2, 1), color 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .site-header[data-scrolled] {
+    box-shadow: 0 1px 0 var(--line);
+  }
+  #mobile-menu {
+    background-color: var(--page);
+  }
+</style>
 
 <script>
   const header = document.getElementById('site-header');
