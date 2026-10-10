@@ -77,8 +77,8 @@ export const products: Product[] = [
     schemaCategory: 'LifestyleApplication',
   },
   {
-    key: 'moneymate',
-    name: 'MoneyMate',
+    key: 'boni',
+    name: 'Boni',
     hindi: 'पैसा',
     category: 'Finance',
     tagline: 'Your rupees, clearly',
